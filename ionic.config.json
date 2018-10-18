@@ -1,0 +1,8 @@
+{
+  "name": "SystemFlux",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular",
+  "pro_id": "b3fcb9fb"
+}
