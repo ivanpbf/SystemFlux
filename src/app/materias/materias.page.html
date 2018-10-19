@@ -1,0 +1,19 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>Materias</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+    <ion-list>
+      <ion-list-header>
+        Periodo 1
+      </ion-list-header>
+      <ion-item button *ngFor="let item of items" (click)="itemSelected(item)">
+        {{ item }}
+      </ion-item>  
+      <ion-list-header>
+          Periodo 2
+        </ion-list-header>
+      </ion-list>
+  </ion-content>

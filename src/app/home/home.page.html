@@ -1,20 +1,9 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Materias</ion-title>
+    <ion-title>SystemFlux</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
-<ion-list>
-  <ion-item *ngFor="let item of items">
-    {{ item }}
-  </ion-item>
-</ion-list>
 <ion-content padding>
-  <ion-list>
-    <ion-list-header>
-      Periodo 1
-    </ion-list-header>
-    <ion-item>Materia 1</ion-item>
-    <ion-item>Materia 2</ion-item>
-  </ion-list>
+  <ion-button (click)="Materias()">Flujograma</ion-button>
+  <ion-button (click)="OfertaAnual()">Oferta Anual</ion-button>
 </ion-content>
