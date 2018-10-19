@@ -14,7 +14,7 @@ const routes: Routes = [
     component: MateriasPage
   },
   {
-    path: ':id', //id de la materia
+    path: 'materias/:id', //id de la materia
     component: MateriaComponent //deberia llevar a la pagina con el id especificado o elegido
   }
 ];

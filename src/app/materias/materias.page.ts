@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
+
 
 @Component({
   selector: 'app-materias',
@@ -8,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class MateriasPage implements OnInit {
   items;
   
-  constructor() { 
+  constructor(private router: Router) { 
     this.initializeItems();
   }
 
@@ -37,8 +39,8 @@ export class MateriasPage implements OnInit {
     }
   }
 
-  itemSelected(item: string) {
-  console.log("Selected Item", item);
+  Go(item: string) {
+    this.router.navigateByUrl('/materias/'+item); //ojo aqui, se deberia ir al id del objeto en mongo
   }
 
   ngOnInit() {
