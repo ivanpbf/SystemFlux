@@ -1,10 +1,20 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Home</ion-title>
+    <ion-title>Materias</ion-title>
   </ion-toolbar>
 </ion-header>
-
+<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+<ion-list>
+  <ion-item *ngFor="let item of items">
+    {{ item }}
+  </ion-item>
+</ion-list>
 <ion-content padding>
-  The world is your oyster.
-  <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs">docs</a> will be your guide.</p>
+  <ion-list>
+    <ion-list-header>
+      Periodo 1
+    </ion-list-header>
+    <ion-item>Materia 1</ion-item>
+    <ion-item>Materia 2</ion-item>
+  </ion-list>
 </ion-content>
