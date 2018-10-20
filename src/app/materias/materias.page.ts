@@ -10,7 +10,7 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./materias.page.scss'],
 })
 export class MateriasPage implements OnInit {
-  items;
+  items: any;
   
   constructor(private router: Router, public http: Http) { 
     this.getMaterias();
@@ -39,7 +39,7 @@ export class MateriasPage implements OnInit {
     // if the value is an empty string don't filter the items
     if (val && val.trim() != '') {
       this.items = this.items.filter((item) => {
-        return (item.toLowerCase().indexOf(val.toLowerCase()) > -1);
+        return (item.name.toLowerCase().indexOf(val.toLowerCase()) > -1);
       })
     }
   }
