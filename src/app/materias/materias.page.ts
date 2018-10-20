@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Http, Headers } from '@angular/http';
 import { Router } from "@angular/router";
+import { map } from 'rxjs/operators';
 
 
 @Component({
@@ -10,23 +12,26 @@ import { Router } from "@angular/router";
 export class MateriasPage implements OnInit {
   items;
   
-  constructor(private router: Router) { 
-    this.initializeItems();
+  constructor(private router: Router, public http: Http) { 
+    this.getMaterias();
   }
 
-  initializeItems(){
-    this.items = [
-      'Materia 1',
-      'Materia 2',
-      'Materia 3',
-      'Etc',
-      'Ingenieria de Software'
-    ];
+  getMaterias(){
+    if(this.items){
+      return Promise.resolve(this.items);
+    }
+    return new Promise(resolve=>{
+      this.http.get('http://localhost:3000/materias')
+      .pipe(map(res=>res.json())).subscribe(items =>{
+        this.items = items;
+        resolve(this.items);
+      })
+    })
   }
   
   getItems(ev) {
     // Reset items back to all of the items
-    this.initializeItems();
+    this.getMaterias();
 
     // set val to the value of the ev target
     var val = ev.target.value;

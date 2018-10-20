@@ -11,6 +11,10 @@ var materiaEsquema = mongoose.Schema({
         type: String,
         required: true
     },
+    periodo:{
+        type: Number,
+        required: true
+    },
     prelacion1:{
         type: String,
         required: false
