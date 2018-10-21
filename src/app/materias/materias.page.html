@@ -6,14 +6,80 @@
   <ion-content>
     <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
     <ion-list>
+      <!--<ion-item button *ngFor="let item of items" (click)="Go(item._id)">
+        {{ item.name }}
+      </ion-item> dejare este codigo por aqui-->
       <ion-list-header>
         Periodo 1
       </ion-list-header>
-      <ion-item button *ngFor="let item of items" (click)="Go(item._id)">
-        {{ item.name }}
-      </ion-item>  
+      <ion-item button *ngFor="let itemp1 of itemsp1" (click)="Go(itemp1._id)">
+        {{ itemp1.name }}
+      </ion-item> 
       <ion-list-header>
-          Periodo 2
-        </ion-list-header>
+        Periodo 2
+      </ion-list-header>
+      <ion-item button *ngFor="let itemp2 of itemsp2" (click)="Go(itemp2._id)">
+        {{ itemp2.name }}
+      </ion-item>
+      <ion-list-header>
+        Periodo 3
+      </ion-list-header>
+      <ion-item button *ngFor="let itemp3 of itemsp3" (click)="Go(itemp3._id)">
+          {{ itemp3.name }}
+      </ion-item> 
+      <ion-list-header>
+        Periodo 4
+      </ion-list-header>
+      <ion-item button *ngFor="let itemp4 of itemsp4" (click)="Go(itemp4._id)">
+        {{ itemp4.name }}
+      </ion-item>
+      <ion-list-header>
+        Periodo 5
+      </ion-list-header>
+      <ion-item button *ngFor="let itemp5 of itemsp5" (click)="Go(itemp5._id)">
+        {{ itemp5.name }}
+      </ion-item>
+      <ion-list-header>
+        Periodo 6
+      </ion-list-header>
+      <ion-item button *ngFor="let itemp6 of itemsp6" (click)="Go(itemp6._id)">
+        {{ itemp6.name }}
+      </ion-item> 
+      <ion-list-header>
+        Periodo 7
+      </ion-list-header>
+      <ion-item button *ngFor="let itemp7 of itemsp7" (click)="Go(itemp7._id)">
+        {{ itemp7.name }}
+      </ion-item>
+      <ion-list-header>
+        Periodo 8
+      </ion-list-header>
+      <ion-item button *ngFor="let itemp8 of itemsp8" (click)="Go(itemp8._id)">
+        {{ itemp8.name }}
+      </ion-item>
+      <ion-list-header>
+        Periodo 9
+      </ion-list-header>
+      <ion-item button *ngFor="let itemp9 of itemsp9" (click)="Go(itemp9._id)">
+        {{ itemp9.name }}
+      </ion-item> 
+      <ion-list-header>
+        Periodo 10
+      </ion-list-header>
+      <ion-item button *ngFor="let itemp10 of itemsp10" (click)="Go(itemp10._id)">
+        {{ itemp10.name }}
+      </ion-item>
+      <ion-list-header>
+        Periodo 11
+      </ion-list-header>
+      <ion-item button *ngFor="let itemp11 of itemsp11" (click)="Go(itemp11._id)">
+        {{ itemp11.name }}
+      </ion-item>
+      <ion-list-header>
+        Periodo 12
+      </ion-list-header>
+      <ion-item button *ngFor="let itemp12 of itemsp12" (click)="Go(itemp12._id)">
+        {{ itemp12.name }}
+      </ion-item>
       </ion-list>
   </ion-content>

@@ -11,19 +11,40 @@ import { map } from 'rxjs/operators';
 })
 export class MateriasPage implements OnInit {
   items: any;
-  
+  itemsp1: any;
+  itemsp2: any;
+  itemsp3: any;
+  itemsp4: any;
+  itemsp5: any;
+  itemsp6: any;
+  itemsp7: any;
+  itemsp8: any;
+  itemsp9: any;
+  itemsp10: any;
+  itemsp11: any;
+  itemsp12: any;
+
   constructor(private router: Router, public http: Http) { 
     this.getMaterias();
   }
 
   getMaterias(){
-    if(this.items){
-      return Promise.resolve(this.items);
-    }
     return new Promise(resolve=>{
       this.http.get('http://localhost:3000/materias')
       .pipe(map(res=>res.json())).subscribe(items =>{
         this.items = items;
+        this.itemsp1 = items.filter((item)=> item.periodo === 1);
+        this.itemsp2 = items.filter((item)=> item.periodo === 2);
+        this.itemsp3 = items.filter((item)=> item.periodo === 3);
+        this.itemsp4 = items.filter((item)=> item.periodo === 4);     
+        this.itemsp5 = items.filter((item)=> item.periodo === 5);
+        this.itemsp6 = items.filter((item)=> item.periodo === 6);
+        this.itemsp7 = items.filter((item)=> item.periodo === 7);
+        this.itemsp8 = items.filter((item)=> item.periodo === 8);
+        this.itemsp9 = items.filter((item)=> item.periodo === 9);
+        this.itemsp10 = items.filter((item)=> item.periodo === 10);        
+        this.itemsp11 = items.filter((item)=> item.periodo === 11);
+        this.itemsp12 = items.filter((item)=> item.periodo === 12);        
         resolve(this.items);
       })
     })
