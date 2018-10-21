@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Oferta Anual</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  <ion-list>
+    <ion-list-header>
+      Trimestre 1
+    </ion-list-header>
+    <ion-item button *ngFor="let itemt1 of itemst1" (click)="Go(itemp1._id)">
+      {{ itemt1.name }}
+    </ion-item> 
+    <ion-list-header>
+      Trimestre 2
+    </ion-list-header>
+    <ion-item button *ngFor="let itemt2 of itemst2" (click)="Go(itemp2._id)">
+      {{ itemt2.name }}
+    </ion-item>
+    <ion-list-header>
+      Trimestre 3
+    </ion-list-header>
+    <ion-item button *ngFor="let itemt3 of itemst3" (click)="Go(itemt3._id)">
+        {{ itemt3.name }}
+    </ion-item> 
+    </ion-list>
+</ion-content>

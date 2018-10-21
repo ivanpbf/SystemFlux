@@ -15,5 +15,9 @@ export class HomePage {
   Materias(){
     this.router.navigateByUrl('/materias');
   }
+
+  OfertaAnual(){
+    this.router.navigateByUrl('/oferta');
+  }
   
 }
