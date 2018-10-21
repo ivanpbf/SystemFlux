@@ -50,8 +50,8 @@ app.post('/materias', function(req,res){
     });
 });
 
-app.put('/materias/:_id', function(req,res){
-    var id = req.params._id;
+app.put('/materias/:id', function(req,res){
+    var id = req.params.id;
     var materia = req.body;
     Materia.updateMateria(id, materia, {}, function(err, materia){
         if(err){
@@ -61,8 +61,8 @@ app.put('/materias/:_id', function(req,res){
     });
 });
 
-app.get('/materias/:_id', function(req,res){
-    Materia.getMateriasById(req.params._id, function(err, materia){
+app.get('/materias/:id', function(req,res){
+    Materia.findById(req.params.id, function(err, materia){
         if(err){
             throw err;
         }

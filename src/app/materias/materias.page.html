@@ -9,7 +9,7 @@
       <ion-list-header>
         Periodo 1
       </ion-list-header>
-      <ion-item button *ngFor="let item of items" (click)="Go(item)">
+      <ion-item button *ngFor="let item of items" (click)="Go(item._id)">
         {{ item.name }}
       </ion-item>  
       <ion-list-header>
