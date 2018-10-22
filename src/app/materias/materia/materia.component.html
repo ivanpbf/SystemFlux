@@ -1,11 +1,57 @@
-<p>
-  Nombre: {{materia.name}}
-  Codigo: {{materia.codigo}}
-  Periodo: {{materia.periodo}}
-  Prelacion 1: {{materia.prelacion1}}
-  Prelacion 2: {{materia.prelacion2}}
-  Creditos Para ver: {{materia.codigosParaVer}}
-  Trimestre 1: {{materia.T1}}
-  Trimestre 2: {{materia.T2}}
-  Trimestre 3: {{materia.T3}}
-</p>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Materia
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+
+      <ion-item>
+        <h2>{{name}}</h2>
+      </ion-item>
+      <ion-item>
+          <h1>{{codigo}}</h1>
+      </ion-item>
+
+      <ion-item>
+        Periodo
+        <ion-item item-end>
+          {{periodo}}
+        </ion-item>
+      </ion-item>
+
+  <!--    <ion-item>
+        Prelaciones
+        <ion-item button item-end "Go(prelacion1)">
+          {{prelacion1}}
+        </ion-item>
+        <ion-item button item-end "Go(prelacion2)">
+          {{prelacion2}}
+        </ion-item>
+      </ion-item>-->
+
+      <ion-item>
+        Creditos Para Ver
+        <ion-item item-end>
+          {{creditosParaVer}}
+        </ion-item>
+      </ion-item>
+
+      <ion-item>
+        Trimestres Disponibles
+        <ion-item item-end>
+          {{T1}}
+        </ion-item>
+        <ion-item item-end>
+          {{T2}}
+        </ion-item>
+        <ion-item item-end>
+          {{T3}}
+        </ion-item> 
+      </ion-item>
+
+  </ion-list>
+</ion-content>
+

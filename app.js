@@ -70,6 +70,15 @@ app.get('/materias/:id', function(req,res){
     });
 });
 
+app.get('/materias/name', function(req,res){
+    Materia.findByName(req.params.name, function(err, materia){
+        if(err){
+            throw err;
+        }
+        res.json(materia);
+    });
+});
+
 app.listen(port,()=>{
     console.log('conectado');
 });

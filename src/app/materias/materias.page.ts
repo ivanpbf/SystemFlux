@@ -129,7 +129,7 @@ export class MateriasPage implements OnInit {
 }
 
   Go(item: string) {
-    this.router.navigateByUrl('/materias/'+item); //ojo aqui, se deberia ir al id del objeto en mongo
+    this.router.navigateByUrl('/materias/'+item); 
   }
 
   ngOnInit() {
