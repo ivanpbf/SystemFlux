@@ -13,7 +13,8 @@ const routes: Routes = [
   {
     path: '',
     component: OfertaPage
-  }
+  },
+
 ];
 
 @NgModule({

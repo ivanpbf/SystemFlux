@@ -6,25 +6,25 @@
 <ion-content>
   <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
   <ion-list>
-    <ion-item button *ngFor="let itemb of itemsb" (click)="Go(itemb._id)">
+    <ion-item button *ngFor="let itemb of itemsb" block (click)="doConfirm(itemb)">
       {{itemb.name}}
     </ion-item>
     <ion-list-header>
       Trimestre 1
     </ion-list-header>
-    <ion-item button *ngFor="let itemt1 of itemst1" (click)="Go(itemp1._id)">
+    <ion-item button *ngFor="let itemt1 of itemst1" block (click)="doConfirm(itemt1)">
       {{ itemt1.name }}
     </ion-item> 
     <ion-list-header>
       Trimestre 2
     </ion-list-header>
-    <ion-item button *ngFor="let itemt2 of itemst2" (click)="Go(itemp2._id)">
+    <ion-item button *ngFor="let itemt2 of itemst2" block (click)="doConfirm(itemt2)">
       {{ itemt2.name }}
     </ion-item>
     <ion-list-header>
       Trimestre 3
     </ion-list-header>
-    <ion-item button *ngFor="let itemt3 of itemst3" (click)="Go(itemt3._id)">
+    <ion-item button *ngFor="let itemt3 of itemst3" block (click)="doConfirm(itemt3)">
         {{ itemt3.name }}
     </ion-item> 
     </ion-list>

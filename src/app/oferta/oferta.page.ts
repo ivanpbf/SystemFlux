@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import { Router } from "@angular/router";
 import { map } from 'rxjs/operators';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-oferta',
@@ -16,7 +17,7 @@ export class OfertaPage implements OnInit {
   itemst2: any;
   itemst3: any;
 
-  constructor(private router: Router, public http: Http) { 
+  constructor(private router: Router, public http: Http, public alerCtrl: AlertController) { 
     this.getMaterias();
   }
 
@@ -68,6 +69,30 @@ getItems(ev) {
         })
       }
     });
+  }
+
+  doConfirm(item) {
+    let confirm = this.alerCtrl.create({
+      message: "Materia: "+item.name+" Codigo: "+item.codigo,
+      buttons: [
+        {
+          text: 'Volver',
+          handler: () => {
+            console.log('Volver clicked');
+          }
+        },
+        {
+          text: 'Informacion',
+          handler: () => {
+            this.Go(item.id);
+          }
+        }
+      ]
+    });
+  }
+
+  Go(item: string) {
+    this.router.navigateByUrl('/materias/'+item); 
   }
 
   ngOnInit() {
