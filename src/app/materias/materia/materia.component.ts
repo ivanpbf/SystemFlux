@@ -15,8 +15,11 @@ export class MateriaComponent implements OnInit {
   name: any;
   codigo: any;
   periodo: any;
+  prelaciones: Boolean;
   prelacion1: any;
+  prelacion1n: any;
   prelacion2: any;
+  prelacion2n: any;
   creditosParaVer: any;
   T1: any;
   T2: any;
@@ -47,13 +50,23 @@ export class MateriaComponent implements OnInit {
           this.T3 = "T 3";
         }
         if(typeof materia.prelacion1 !== 'undefined'){
-          this.prelacion1 = materia.prelacion1;
+          this.prelaciones = true;
+          this.http.get('http://localhost:3000/materias/'+this.materia.prelacion1)
+          .pipe(map(res=>res.json())).subscribe(prelacion1 =>{
+            this.prelacion1 = prelacion1._id;
+            this.prelacion1n = prelacion1.name;
+          })
         }
         else{
-          this.prelacion1 = "Ninguna";
+          this.prelacion1n = "Ninguna";
+          this.prelaciones = false;
         }
         if(typeof materia.prelacion2 !== 'undefined'){
-          this.prelacion2 = materia.prelacion2;
+          this.http.get('http://localhost:3000/materias/'+this.materia.prelacion2)
+          .pipe(map(res=>res.json())).subscribe(prelacion2 =>{
+            this.prelacion2 = prelacion2._id;
+            this.prelacion2n = prelacion2.name;
+          })
         }
         if(typeof materia.creditosParaVer !== 'undefined'){
           this.creditosParaVer = materia.creditosParaVer;
@@ -67,12 +80,9 @@ export class MateriaComponent implements OnInit {
   }
 
   Go(item: string) {
-    var idnuevo;
-    this.http.get('http://localhost:3000/materias/'+item)
-    .pipe(map(res=>res.json())).subscribe(id =>{
-      idnuevo = id;
-    })
-    this.router.navigateByUrl('/materias/'+idnuevo);
+    if (this.prelaciones === true){
+      this.router.navigateByUrl('/materias/'+item);
+    }
   }
 
   ngOnInit() {
