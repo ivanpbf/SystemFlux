@@ -6,6 +6,9 @@
 <ion-content>
   <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
   <ion-list>
+    <ion-item button *ngFor="let itemb of itemsb" (click)="Go(itemb._id)">
+      {{itemb.name}}
+    </ion-item>
     <ion-list-header>
       Trimestre 1
     </ion-list-header>

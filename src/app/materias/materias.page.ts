@@ -11,6 +11,7 @@ import { map } from 'rxjs/operators';
 })
 export class MateriasPage implements OnInit {
   items: any;
+  itemsb: any;
   itemsp1: any;
   itemsp2: any;
   itemsp3: any;
@@ -33,6 +34,7 @@ export class MateriasPage implements OnInit {
       this.http.get('http://localhost:3000/materias')
       .pipe(map(res=>res.json())).subscribe(items =>{
         this.items = items;
+        this.itemsb = undefined;
         this.itemsp1 = items.filter((item)=> item.periodo === 1);
         this.itemsp2 = items.filter((item)=> item.periodo === 2);
         this.itemsp3 = items.filter((item)=> item.periodo === 3);
@@ -61,9 +63,12 @@ export class MateriasPage implements OnInit {
 
     // if the value is an empty string don't filter the items
     if (val && val.trim() != '') {
-      this.items = this.items.filter((item) => {
+      this.itemsb = this.items.filter((item) => {
         return (item.name.toLowerCase().indexOf(val.toLowerCase()) > -1);
       })
+    }
+    if(val.trim() == ''){
+      this.itemsb = undefined
     }
     if (val && val.trim() != '') {
       this.itemsp1 = this.itemsp1.filter((item) => {
