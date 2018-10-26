@@ -4,9 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
-
 import { IonicModule } from '@ionic/angular';
-
 import { MateriasPage } from './materias.page';
 import { MateriaComponent } from './materia/materia.component';
 
@@ -16,8 +14,8 @@ const routes: Routes = [
     component: MateriasPage
   },
   {
-    path: 'materias/:id', //id de la materia
-    component: MateriaComponent //deberia llevar a la pagina con el id especificado o elegido
+    path: 'materias/:id', // id de la materia
+    component: MateriaComponent // deberia llevar a la pagina con el id especificado o elegido
   }
 ];
 
@@ -28,7 +26,7 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild([{ path: '', component: MateriasPage}])
   ],
   declarations: [MateriasPage, MateriaComponent]
 })

@@ -4,9 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
-
 import { IonicModule } from '@ionic/angular';
-
 import { OfertaPage } from './oferta.page';
 
 const routes: Routes = [
@@ -14,7 +12,6 @@ const routes: Routes = [
     path: '',
     component: OfertaPage
   },
-
 ];
 
 @NgModule({
@@ -24,7 +21,7 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild([{ path: '', component: OfertaPage }])
   ],
   declarations: [OfertaPage]
 })
