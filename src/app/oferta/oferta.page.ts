@@ -88,6 +88,7 @@ getItems(ev) {
         }
       ]
     });
+    //confirm.present();
   }
 
   Go(item: string) {
