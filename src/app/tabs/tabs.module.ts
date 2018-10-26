@@ -3,13 +3,12 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
 import { TabsPageRoutingModule } from './tabs.router.module';
-
 import { TabsPage } from './tabs.page';
 import { AboutPageModule } from '../about/about.module';
 import { HomePageModule } from '../home/home.module';
 import { MateriasPageModule } from '../materias/materias.module';
+import { OfertaPageModule } from '../oferta/oferta.module';
 
 @NgModule({
   imports: [
@@ -19,7 +18,8 @@ import { MateriasPageModule } from '../materias/materias.module';
     TabsPageRoutingModule,
     HomePageModule,
     AboutPageModule,
-    MateriasPageModule
+    MateriasPageModule,
+    OfertaPageModule
   ],
   declarations: [TabsPage]
 })

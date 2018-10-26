@@ -8,50 +8,49 @@
 <ion-content>
   <ion-list>
 
-      <ion-item>
-        <h2>{{name}}</h2>
-      </ion-item>
-      <ion-item>
-          <h1>{{codigo}}</h1>
-      </ion-item>
+    <ion-item>
+      <h2>{{name}}</h2>
+    </ion-item>
+    <ion-item>
+      <h1>{{codigo}}</h1>
+    </ion-item>
 
-      <ion-item>
-        Periodo
-        <ion-item item-end>
-          {{periodo}}
-        </ion-item>
+    <ion-item>
+      Periodo
+      <ion-item item-end>
+        {{periodo}}
       </ion-item>
+    </ion-item>
 
-      <ion-item>
-        Prelaciones
-        <ion-item button item-end (click)="Go(prelacion1)">
-          {{prelacion1n}}
-        </ion-item>
-        <ion-item button item-end (click)="Go(prelacion2)">
-          {{prelacion2n}}
-        </ion-item>
+    <ion-item>
+      Prelaciones
+      <ion-item button item-end (click)="Go(prelacion1)">
+        {{prelacion1n}}
       </ion-item>
+      <ion-item button item-end (click)="Go(prelacion2)">
+        {{prelacion2n}}
+      </ion-item>
+    </ion-item>
 
-      <ion-item>
-        Creditos Para Ver
-        <ion-item item-end>
-          {{creditosParaVer}}
-        </ion-item>
+    <ion-item>
+      Creditos Para Ver
+      <ion-item item-end>
+        {{creditosParaVer}}
       </ion-item>
+    </ion-item>
 
-      <ion-item>
-        Trimestres Disponibles
-        <ion-item item-end>
-          {{T1}}
-        </ion-item>
-        <ion-item item-end>
-          {{T2}}
-        </ion-item>
-        <ion-item item-end>
-          {{T3}}
-        </ion-item> 
+    <ion-item>
+      Trimestres Disponibles
+      <ion-item item-end>
+        {{T1}}
       </ion-item>
+      <ion-item item-end>
+        {{T2}}
+      </ion-item>
+      <ion-item item-end>
+        {{T3}}
+      </ion-item>
+    </ion-item>
 
   </ion-list>
 </ion-content>
-
