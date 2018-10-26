@@ -24,11 +24,24 @@
 
     <ion-item>
       Prelaciones
-      <ion-item button item-end (click)="Go(prelacion1)">
+      <ion-item button item-end (click)="GoPrelaciones(prelacion1)">
         {{prelacion1n}}
       </ion-item>
-      <ion-item button item-end (click)="Go(prelacion2)">
+      <ion-item button item-end (click)="GoPrelaciones(prelacion2)">
         {{prelacion2n}}
+      </ion-item>
+    </ion-item>
+
+    <ion-item>
+      Antelaciones
+      <ion-item button item-end (click)="GoAntelaciones(antelacion1)">
+        {{antelacion1n}}
+      </ion-item>
+      <ion-item button item-end (click)="GoAntelaciones(antelacion2)">
+        {{antelacion2n}}
+      </ion-item>
+      <ion-item button item-end (click)="GoAntelaciones(antelacion3)">
+        {{antelacion3n}}
       </ion-item>
     </ion-item>
 

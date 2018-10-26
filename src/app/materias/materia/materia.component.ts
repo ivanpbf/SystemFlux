@@ -20,6 +20,13 @@ export class MateriaComponent implements OnInit {
   prelacion1n: any;
   prelacion2: any;
   prelacion2n: any;
+  antelaciones: Boolean;
+  antelacion1: any;
+  antelacion1n: any;
+  antelacion2: any;
+  antelacion2n: any;
+  antelacion3: any;
+  antelacion3n: any;
   creditosParaVer: any;
   T1: any;
   T2: any;
@@ -67,6 +74,31 @@ export class MateriaComponent implements OnInit {
             this.prelacion2n = prelacion2.name;
           });
         }
+        if (typeof materia.antelacion1 !== 'undefined') {
+          this.antelaciones = true;
+          this.http.get('http://localhost:3000/materias/' + this.materia.antelacion1)
+          .pipe(map(res => res.json())).subscribe(antelacion1 => {
+            this.antelacion1 = antelacion1._id;
+            this.antelacion1n = antelacion1.name;
+          });
+        } else {
+          this.antelacion1n = 'Ninguna';
+          this.antelaciones = false;
+        }
+        if (typeof materia.antelacion2 !== 'undefined') {
+          this.http.get('http://localhost:3000/materias/' + this.materia.antelacion2)
+          .pipe(map(res => res.json())).subscribe(antelacion2 => {
+            this.antelacion2 = antelacion2._id;
+            this.antelacion2n = antelacion2.name;
+          });
+        }
+        if (typeof materia.antelacion3 !== 'undefined') {
+          this.http.get('http://localhost:3000/materias/' + this.materia.antelacion3)
+          .pipe(map(res => res.json())).subscribe(antelacion3 => {
+            this.antelacion3 = antelacion3._id;
+            this.antelacion3n = antelacion3.name;
+          });
+        }
         if (typeof materia.creditosParaVer !== 'undefined') {
           this.creditosParaVer = materia.creditosParaVer;
         } else {
@@ -77,8 +109,14 @@ export class MateriaComponent implements OnInit {
     });
   }
 
-  Go(item: string) {
+  GoPrelaciones(item: string) {
     if (this.prelaciones === true) {
+      this.router.navigateByUrl('/materias/' + item);
+    }
+  }
+
+  GoAntelaciones(item: string) {
+    if (this.antelaciones === true) {
       this.router.navigateByUrl('/materias/' + item);
     }
   }
