@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
 import { HomePage } from '../home/home.page';
-import { AboutPage } from '../about/about.page';
 import { MateriasPage } from '../materias/materias.page';
 import { OfertaPage } from '../oferta/oferta.page';
 
@@ -20,11 +19,6 @@ const routes: Routes = [
         path: 'home',
         outlet: 'home',
         component: HomePage
-      },
-      {
-        path: 'about',
-        outlet: 'about',
-        component: AboutPage
       },
       {
         path: 'materias',
