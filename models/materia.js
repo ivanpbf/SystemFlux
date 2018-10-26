@@ -23,6 +23,18 @@ var materiaEsquema = mongoose.Schema({
         type: String,
         required: false
     },
+    antelacion1:{
+        type: String,
+        required: false
+    },
+    antelacion2:{
+        type: String,
+        required: false
+    },
+    antelacion3:{
+        type: String,
+        required: false
+    },
     creditosParaVer:{
         type: Number,
         required: false
