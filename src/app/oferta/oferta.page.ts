@@ -70,9 +70,10 @@ getItems(ev) {
     });
   }
 
-  doConfirm(item) {
-    const confirm = this.alerCtrl.create({
-      message: 'Materia: ' + item.name + ' Codigo: ' + item.codigo,
+  async doConfirm(item) {
+    const confirm = await this.alerCtrl.create({
+      header: item.name,
+      message: ' Codigo: ' + item.codigo,
       buttons: [
         {
           text: 'Volver',
@@ -81,14 +82,14 @@ getItems(ev) {
           }
         },
         {
-          text: 'Informacion',
+          text: 'Ver Informacion',
           handler: () => {
-            this.Go(item.id);
+            this.Go(item._id);
           }
         }
       ]
     });
-    //confirm.present();
+    await confirm.present();
   }
 
   Go(item: string) {
