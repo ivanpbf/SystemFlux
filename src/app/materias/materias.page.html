@@ -1,8 +1,15 @@
 <ion-header>
-    <ion-toolbar>
-      <ion-title>Materias</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    <ion-title>materias</ion-title>
+    <ion-buttons slot="end">
+        <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
   <ion-content>
     <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
     <ion-list>
@@ -86,3 +93,4 @@
       </ion-item>
       </ion-list>
   </ion-content>
+

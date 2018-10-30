@@ -9,15 +9,4 @@ import { Router } from '@angular/router';
 
 export class HomePage {
 
-  constructor(private router: Router) {
-  }
-
-  Materias() {
-    this.router.navigateByUrl('/materias');
-  }
-
-  OfertaAnual() {
-    this.router.navigateByUrl('/oferta');
-  }
-
 }
