@@ -11,14 +11,14 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 export class AppComponent {
   public appPages = [
     {
-      title: 'Home',
-      url: '/',
-      icon: 'home'
-    },
-    {
       title: 'Perfil',
       url: '/perfil',
       icon: 'contact'
+    },
+    {
+      title: 'Informacion',
+      url: '/informacion',
+      icon: 'information-circle'
     },
     {
       title: 'Ajustes',
@@ -40,5 +40,6 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+
   }
 }
