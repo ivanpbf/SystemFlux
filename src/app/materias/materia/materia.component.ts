@@ -31,6 +31,7 @@ export class MateriaComponent implements OnInit {
   T1: any;
   T2: any;
   T3: any;
+  aprobada: Boolean;
 
   constructor(private route: ActivatedRoute, public http: Http, private router: Router) {
     this.initializeMateria();
@@ -104,6 +105,7 @@ export class MateriaComponent implements OnInit {
         } else {
           this.creditosParaVer = '0';
         }
+        //hacer aqui la validacion de materia cursada
         resolve(this.materia);
       });
     });
@@ -120,9 +122,14 @@ export class MateriaComponent implements OnInit {
       this.router.navigateByUrl('/materias/' + item);
     }
   }
+  
+  marcar(){
+    console.log(this.aprobada);
+  }
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
+
   }
 
 }
