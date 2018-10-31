@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Http, Headers } from '@angular/http';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
+import { IonicStorageModule } from '@ionic/storage';
 
 @Component({
   selector: 'app-materia',
@@ -122,14 +123,14 @@ export class MateriaComponent implements OnInit {
       this.router.navigateByUrl('/materias/' + item);
     }
   }
-  
-  marcar(){
-    console.log(this.aprobada);
+
+  public checkAprobada() {
+    localStorage.set("aprobada", this.aprobada);
   }
+  
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
-
   }
 
 }
