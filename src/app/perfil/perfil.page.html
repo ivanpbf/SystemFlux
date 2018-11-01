@@ -11,5 +11,7 @@
 </ion-header>
 
 <ion-content padding>
-
+    <ion-item button *ngFor="let materiaAprobada of storage">
+        {{ materiaAprobada }}
+    </ion-item>
 </ion-content>

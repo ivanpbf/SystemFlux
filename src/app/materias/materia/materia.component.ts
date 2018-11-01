@@ -83,10 +83,10 @@ export class MateriaComponent implements OnInit {
             this.antelacion1 = antelacion1._id;
             this.antelacion1n = antelacion1.name;
             //esto verifica si la antelacion 1 esta aprobada y marca como aprobada esta materia
-            this.storage.get(antelacion1._id).then(antelacion1aprobada =>{
+            this.storage.get(antelacion1.name).then(antelacion1aprobada =>{
               if (antelacion1aprobada === true){
                 this.aprobada = antelacion1aprobada;
-                this.storage.set(this.id, antelacion1aprobada);                
+                this.storage.set(this.name, antelacion1aprobada);                
               }
             });
           });
@@ -100,10 +100,10 @@ export class MateriaComponent implements OnInit {
             this.antelacion2 = antelacion2._id;
             this.antelacion2n = antelacion2.name;
             //esto verifica si la antelacion 2 esta aprobada y marca como aprobada esta materia
-            this.storage.get(antelacion2._id).then(antelacion2aprobada =>{
+            this.storage.get(antelacion2.name).then(antelacion2aprobada =>{
               if (antelacion2aprobada === true){
                 this.aprobada = antelacion2aprobada;
-                this.storage.set(this.id, antelacion2aprobada);               
+                this.storage.set(this.name, antelacion2aprobada);               
               }
             });
           });
@@ -114,10 +114,10 @@ export class MateriaComponent implements OnInit {
             this.antelacion3 = antelacion3._id;
             this.antelacion3n = antelacion3.name;
             //esto verifica si la antelacion 3 esta aprobada y marca como aprobada esta materia
-            this.storage.get(antelacion3._id).then(antelacion3aprobada =>{
+            this.storage.get(antelacion3.name).then(antelacion3aprobada =>{
               if (antelacion3aprobada === true){
                 this.aprobada = antelacion3aprobada;
-                this.storage.set(this.id, antelacion3aprobada);               
+                this.storage.set(this.name, antelacion3aprobada);               
               }
             });
           });
@@ -145,13 +145,13 @@ export class MateriaComponent implements OnInit {
   }
 
   public checkAprobada() {
-    this.storage.set(this.id, this.aprobada);
+    this.storage.set(this.name, this.aprobada);
   }
   
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
-    this.storage.get(this.id).then(aprobada => this.aprobada = aprobada); //esto saca del storage si esta aprobada o no (si fue marcada antes)    
+    this.storage.get(this.name).then(aprobada => this.aprobada = aprobada); //esto saca del storage si esta aprobada o no (si fue marcada antes)    
   }
 
 }
