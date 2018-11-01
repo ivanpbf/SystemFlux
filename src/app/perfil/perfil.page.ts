@@ -20,8 +20,8 @@ export class PerfilPage implements OnInit {
       this.http.get('http://localhost:3000/materias')
       .pipe(map(res => res.json())).subscribe(items => {
         this.items = items;
-        if (this.storage.get(items.name).then(aprobada =>{
-          this.materiasAprobadas = items.name;
+        if (this.storage.get(items._id).then(id =>{
+          this.materiasAprobadas = id;
         }))
         resolve(this.items);
       });
