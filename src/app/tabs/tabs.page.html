@@ -1,7 +1,7 @@
 <ion-header>
-    <ion-toolbar>
+    <ion-toolbar color="primary">
         <ion-buttons slot="start">
-            <ion-back-button defaultHref="/tabs/(home:home)"></ion-back-button>
+            <ion-back-button color="secondary"></ion-back-button>
           </ion-buttons>
       <ion-title>SystemFlux</ion-title>
         <ion-buttons slot="end">
@@ -12,14 +12,15 @@
 
 
 
-<ion-tabs>
+<ion-tabs >
     <ion-tab label="Home" icon="home" href="/tabs/(home:home)">
       <ion-router-outlet name="home"></ion-router-outlet>
     </ion-tab>
   <ion-tab label="Flujograma" icon="school" href="/tabs/(materias:materias)">
     <ion-router-outlet name="materias"></ion-router-outlet>
   </ion-tab>
-  <ion-tab label="Oferta Anual" icon="list" href="/tabs/(oferta:oferta)">
+  <ion-tab label="Oferta Anual" icon="list-box" href="/tabs/(oferta:oferta)">
     <ion-router-outlet name="oferta"></ion-router-outlet>
   </ion-tab>
 </ion-tabs>
+
