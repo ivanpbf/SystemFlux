@@ -20,9 +20,11 @@ export class PerfilPage implements OnInit {
       this.http.get('http://localhost:3000/materias')
       .pipe(map(res => res.json())).subscribe(items => {
         this.items = items;
-        this.materiasAprobadas = this.storage.get(items.names);
+        if (this.storage.get(items.name).then(aprobada =>{
+          this.materiasAprobadas = items.name;
+        }))
         resolve(this.items);
-      })
+      });
     });
   }
 
