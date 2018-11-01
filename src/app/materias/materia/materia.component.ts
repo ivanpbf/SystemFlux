@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Http, Headers } from '@angular/http';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
-import { IonicStorageModule } from '@ionic/storage';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-materia',
@@ -34,7 +34,7 @@ export class MateriaComponent implements OnInit {
   T3: any;
   aprobada: Boolean;
 
-  constructor(private route: ActivatedRoute, public http: Http, private router: Router) {
+  constructor(private route: ActivatedRoute, public http: Http, private router: Router, private storage: Storage) {
     this.initializeMateria();
   }
 
@@ -58,7 +58,7 @@ export class MateriaComponent implements OnInit {
         if (materia.T3 === true) {
           this.T3 = 'T 3';
         }
-        if (typeof materia.prelacion1 !== 'undefined') {
+        if (typeof materia.prelacion1 !== 'undefined') { //validaciones de prelacion y agarra la segunda prelacion de la base de datos
           this.prelaciones = true;
           this.http.get('http://localhost:3000/materias/' + this.materia.prelacion1)
           .pipe(map(res => res.json())).subscribe(prelacion1 => {
@@ -69,19 +69,26 @@ export class MateriaComponent implements OnInit {
           this.prelacion1n = 'Ninguna';
           this.prelaciones = false;
         }
-        if (typeof materia.prelacion2 !== 'undefined') {
+        if (typeof materia.prelacion2 !== 'undefined') { //validaciones de prelacion y agarra la segunda prelacion de la base de datos
           this.http.get('http://localhost:3000/materias/' + this.materia.prelacion2)
           .pipe(map(res => res.json())).subscribe(prelacion2 => {
             this.prelacion2 = prelacion2._id;
             this.prelacion2n = prelacion2.name;
           });
         }
-        if (typeof materia.antelacion1 !== 'undefined') {
+        if (typeof materia.antelacion1 !== 'undefined') { 
           this.antelaciones = true;
           this.http.get('http://localhost:3000/materias/' + this.materia.antelacion1)
           .pipe(map(res => res.json())).subscribe(antelacion1 => {
             this.antelacion1 = antelacion1._id;
             this.antelacion1n = antelacion1.name;
+            //esto verifica si la antelacion 1 esta aprobada y marca como aprobada esta materia
+            this.storage.get(antelacion1._id).then(antelacion1aprobada =>{
+              if (antelacion1aprobada === true){
+                this.aprobada = antelacion1aprobada;
+                this.storage.set(this.id, antelacion1aprobada);                
+              }
+            });
           });
         } else {
           this.antelacion1n = 'Ninguna';
@@ -92,6 +99,13 @@ export class MateriaComponent implements OnInit {
           .pipe(map(res => res.json())).subscribe(antelacion2 => {
             this.antelacion2 = antelacion2._id;
             this.antelacion2n = antelacion2.name;
+            //esto verifica si la antelacion 2 esta aprobada y marca como aprobada esta materia
+            this.storage.get(antelacion2._id).then(antelacion2aprobada =>{
+              if (antelacion2aprobada === true){
+                this.aprobada = antelacion2aprobada;
+                this.storage.set(this.id, antelacion2aprobada);               
+              }
+            });
           });
         }
         if (typeof materia.antelacion3 !== 'undefined') {
@@ -99,6 +113,13 @@ export class MateriaComponent implements OnInit {
           .pipe(map(res => res.json())).subscribe(antelacion3 => {
             this.antelacion3 = antelacion3._id;
             this.antelacion3n = antelacion3.name;
+            //esto verifica si la antelacion 3 esta aprobada y marca como aprobada esta materia
+            this.storage.get(antelacion3._id).then(antelacion3aprobada =>{
+              if (antelacion3aprobada === true){
+                this.aprobada = antelacion3aprobada;
+                this.storage.set(this.id, antelacion3aprobada);               
+              }
+            });
           });
         }
         if (typeof materia.creditosParaVer !== 'undefined') {
@@ -106,7 +127,6 @@ export class MateriaComponent implements OnInit {
         } else {
           this.creditosParaVer = '0';
         }
-        //hacer aqui la validacion de materia cursada
         resolve(this.materia);
       });
     });
@@ -125,12 +145,13 @@ export class MateriaComponent implements OnInit {
   }
 
   public checkAprobada() {
-    localStorage.set("aprobada", this.aprobada);
+    this.storage.set(this.id, this.aprobada);
   }
   
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
+    this.storage.get(this.id).then(aprobada => this.aprobada = aprobada); //esto saca del storage si esta aprobada o no (si fue marcada antes)    
   }
 
 }
