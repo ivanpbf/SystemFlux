@@ -3,7 +3,7 @@
       <ion-buttons slot="start">
         <ion-back-button color="secondary"></ion-back-button>
       </ion-buttons>
-      <ion-title>Materia</ion-title>
+      <ion-title>{{name}}</ion-title>
         <ion-buttons slot="end">
           <ion-menu-button></ion-menu-button>
        </ion-buttons>
@@ -14,11 +14,9 @@
   <ion-list>
 
     <ion-item>
-      <h2>{{name}}</h2>
+      <h2>{{codigo}}</h2>
     </ion-item>
-    <ion-item>
-      <h1>{{codigo}}</h1>
-    </ion-item>
+    
 
     <ion-item>
       Periodo
@@ -26,29 +24,30 @@
         {{periodo}}
       </ion-item>
     </ion-item>
-
-    <ion-item>
+    
+    <ion-item *ngIf="prelaciones">
       Prelaciones
-      <ion-item button item-end (click)="GoPrelaciones(prelacion1)">
-        {{prelacion1n}}
-      </ion-item>
-      <ion-item button item-end (click)="GoPrelaciones(prelacion2)">
-        {{prelacion2n}}
-      </ion-item>
     </ion-item>
-
-    <ion-item>
+    <ion-item (click)="GoPrelaciones(prelacion1)" color="success" *ngIf="prelacion1 !== undefined">
+      {{prelacion1n}}
+    </ion-item>
+    <ion-item (click)="GoPrelaciones(prelacion2)" color="success" *ngIf="prelacion2 !== undefined">
+    {{prelacion2n}}
+    </ion-item>
+    
+    
+    <ion-item *ngIf="antelaciones">
       Antelaciones
-      <ion-item button item-end (click)="GoAntelaciones(antelacion1)">
+    </ion-item>
+      <ion-item (click)="GoAntelaciones(antelacion1)" color="success" *ngIf="antelacion1 !== undefined">
         {{antelacion1n}}
       </ion-item>
-      <ion-item button item-end (click)="GoAntelaciones(antelacion2)">
+      <ion-item (click)="GoAntelaciones(antelacion2)" color="success" *ngIf="antelacion2 !== undefined">
         {{antelacion2n}}
       </ion-item>
-      <ion-item button item-end (click)="GoAntelaciones(antelacion3)">
+      <ion-item (click)="GoAntelaciones(antelacion3)" color="success" *ngIf="antelacion3 !== undefined">
         {{antelacion3n}}
       </ion-item>
-    </ion-item>
 
     <ion-item>
       Creditos Para Ver
@@ -72,7 +71,7 @@
 
     <ion-item>
       <ion-label>Aprobada</ion-label>
-      <ion-checkbox [(ngModel)]="aprobada" (ionChange)="checkAprobada()" color="secondary"></ion-checkbox>
+      <ion-checkbox [(ngModel)]="aprobada" (ionChange)="checkAprobada()" color="success"></ion-checkbox>
     </ion-item>
   </ion-list>
 </ion-content>

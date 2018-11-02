@@ -66,7 +66,6 @@ export class MateriaComponent implements OnInit {
             this.prelacion1n = prelacion1.name;
           });
         } else {
-          this.prelacion1n = 'Ninguna';
           this.prelaciones = false;
         }
         if (typeof materia.prelacion2 !== 'undefined') { //validaciones de prelacion y agarra la segunda prelacion de la base de datos
@@ -91,7 +90,6 @@ export class MateriaComponent implements OnInit {
             });
           });
         } else {
-          this.antelacion1n = 'Ninguna';
           this.antelaciones = false;
         }
         if (typeof materia.antelacion2 !== 'undefined') {
@@ -133,13 +131,13 @@ export class MateriaComponent implements OnInit {
   }
 
   GoPrelaciones(item: string) {
-    if (this.prelaciones === true) {
+    if (this.prelaciones === true && typeof item !== "undefined") {
       this.router.navigateByUrl('/materias/' + item);
     }
   }
 
   GoAntelaciones(item: string) {
-    if (this.antelaciones === true) {
+    if (this.antelaciones === true && typeof item !== "undefined") {
       this.router.navigateByUrl('/materias/' + item);
     }
   }
