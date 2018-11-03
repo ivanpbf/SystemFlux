@@ -34,7 +34,7 @@ export class MateriaComponent implements OnInit {
   T3: any;
   aprobada: Boolean;
 
-  constructor(private route: ActivatedRoute, public http: Http, private router: Router, private storage: Storage) {
+  constructor(private route: ActivatedRoute, public http: Http, private router: Router, public storage: Storage) {
     this.initializeMateria();
   }
 
@@ -144,6 +144,7 @@ export class MateriaComponent implements OnInit {
 
   public checkAprobada() {
     this.storage.set(this.id, this.aprobada);
+    this.storage.set("nombres", this.name);
   }
   
   GoBack(){

@@ -33,8 +33,6 @@ const routes: Routes = [
         outlet: 'home',
         component: HomePage
       },
-
-
     ]
   }
 ];
