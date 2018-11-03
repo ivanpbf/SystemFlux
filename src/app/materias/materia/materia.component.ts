@@ -146,6 +146,10 @@ export class MateriaComponent implements OnInit {
     this.storage.set(this.id, this.aprobada);
   }
   
+  GoBack(){
+    window.history.back();
+  }
+  
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');

@@ -9,7 +9,11 @@ export class InformacionPage implements OnInit {
 
   constructor() { }
 
+  GoBack(){
+    window.history.back();
+  }
+  
   ngOnInit() {
   }
-
+  
 }

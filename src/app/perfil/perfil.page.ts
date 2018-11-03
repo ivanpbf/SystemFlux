@@ -28,6 +28,10 @@ export class PerfilPage implements OnInit {
     });
   }
 
+  GoBack(){
+    window.history.back();
+  }
+
   ngOnInit() {
   }
 

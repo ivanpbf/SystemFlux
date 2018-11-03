@@ -25,11 +25,11 @@ export class OfertaPage implements OnInit {
     return new Promise(resolve => {
       this.http.get('http://localhost:3000/materias')
       .pipe(map(res => res.json())).subscribe(items => {
-        this.items = items;
+        this.items = items.filter((item) => item.name != "Electiva");
         this.itemsb = undefined;
-        this.itemst1 = items.filter((item) => item.T1 === true);
-        this.itemst2 = items.filter((item) => item.T2 === true);
-        this.itemst3 = items.filter((item) => item.T3 === true);
+        this.itemst1 = items.filter((item) => item.T1 === true && item.name != "Electiva");
+        this.itemst2 = items.filter((item) => item.T2 === true && item.name != "Electiva");
+        this.itemst3 = items.filter((item) => item.T3 === true && item.name != "Electiva");
         resolve(this.items);
     });
   });

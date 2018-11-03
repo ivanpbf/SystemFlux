@@ -9,6 +9,11 @@ export class AjustesPage implements OnInit {
 
   constructor() { }
 
+
+  GoBack(){
+    window.history.back();
+  }
+
   ngOnInit() {
   }
 
