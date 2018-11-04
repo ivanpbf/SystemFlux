@@ -9,8 +9,13 @@ import { Storage } from '@ionic/storage';
   styleUrls: ['./perfil.page.scss'],
 })
 export class PerfilPage implements OnInit {
+
+  //items son todas las materias
   items:any
+  //materiasAprobadas se sacaran de local storage para asignarlas a una lista
+  //mostrando asi en el perfil del usuario todas las materias que ha aprobado
   materiasAprobadas: any;
+
   constructor(public http: Http, public storage: Storage) { 
     this.getMaterias(storage);
   }
@@ -19,8 +24,10 @@ export class PerfilPage implements OnInit {
     return new Promise(resolve => {
       this.http.get('http://localhost:3000/materias')
       .pipe(map(res => res.json())).subscribe(items => {
+        //get de la base de datos para asignar a items todas las materias
         this.items = items;
         storage.get("nombres").then((val)=>{
+          //por lo momentos solo saca la asignada en nombres, son pasos para luego sacar todas las del storage que son aprobadas
           this.materiasAprobadas=val;
         })
         resolve(this.items);
@@ -29,7 +36,7 @@ export class PerfilPage implements OnInit {
   }
 
 
-  GoBack(){
+  GoBack(){ //metodo que vuelve a la pagina anterior como un navegador comun
     window.history.back();
   }
 

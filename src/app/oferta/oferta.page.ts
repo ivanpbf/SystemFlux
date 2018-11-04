@@ -11,8 +11,11 @@ import { AlertController } from '@ionic/angular';
 })
 
 export class OfertaPage implements OnInit {
+  //items son todas las materias
   items: any;
+  //itemsb son las materias de la busqueda
   itemsb: any;
+  //itemst1-3 son las materias asignadas por el trimestre en el que abren
   itemst1: any;
   itemst2: any;
   itemst3: any;
@@ -25,8 +28,11 @@ export class OfertaPage implements OnInit {
     return new Promise(resolve => {
       this.http.get('http://localhost:3000/materias')
       .pipe(map(res => res.json())).subscribe(items => {
+        //asigna a items todas las materias de la base de datos recolectadas por el get
         this.items = items.filter((item) => item.name != "Electiva");
+        //como no comienza con busqueda, las materias/items de busqueda (itemsb) esta vacio
         this.itemsb = undefined;
+        //filtro de la base de datos para asignar las materias por trimestre Y eliminando las electivas ya que esas abren todos los trimestres
         this.itemst1 = items.filter((item) => item.T1 === true && item.name != "Electiva");
         this.itemst2 = items.filter((item) => item.T2 === true && item.name != "Electiva");
         this.itemst3 = items.filter((item) => item.T3 === true && item.name != "Electiva");
@@ -36,14 +42,16 @@ export class OfertaPage implements OnInit {
 }
 
 getItems(ev) {
-      // Reset items back to all of the items
+    // reinicia materias a todas las materias
       this.getMaterias().then(res => {
         this.items = res;
 
-      // set val to the value of the ev target
+      // asignar val al valor del ev objetivo
       const val = ev.target.value;
 
-      // if the value is an empty string don't filter the items
+      /* si el valor es un string vacio, no filtra los items
+    este metodo filtrara todas las materias tanto por trimestre en que abren como mostrar en itemsb las mas relevantes de acuerdo a la busqueda
+    que luego seran mostradas al comienzo */
       if (val && val.trim() !== '') {
         this.itemsb = this.items.filter((item) => {
           return (item.name.toLowerCase().indexOf(val.toLowerCase()) > -1);
@@ -71,6 +79,9 @@ getItems(ev) {
   }
 
   async doConfirm(item) {
+    /*este es el popup que aparece al darle clic a una materia
+    en vez de tener que ir a la materia de inmediato, el usuario puede elegir para seguir viendo 
+    la oferta academica o ir a la informacion de la materia*/
     const confirm = await this.alerCtrl.create({
       header: item.name,
       message: ' Codigo: ' + item.codigo,
@@ -92,7 +103,7 @@ getItems(ev) {
     await confirm.present();
   }
 
-  Go(item: string) {
+  Go(item: string) { //recibe un string que es el id de la materia y navega a la pagina de informacion de la misma
     this.router.navigateByUrl('/materias/' + item);
   }
 

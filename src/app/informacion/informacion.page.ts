@@ -9,7 +9,7 @@ export class InformacionPage implements OnInit {
 
   constructor() { }
 
-  GoBack(){
+  GoBack(){ //metodo que vuelve a la pagina anterior como un navegador comun
     window.history.back();
   }
   

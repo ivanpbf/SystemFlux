@@ -3,6 +3,7 @@
 
 /** Ionic CSS Variables **/
 :root {
+  //nuestra paleta de colores de la aplicacion
     --ion-color-primary: #6B7A8F;
     --ion-color-primary-rgb: 107,122,143;
     --ion-color-primary-contrast: #ffffff;
@@ -67,6 +68,7 @@
     --ion-color-light-tint: #f5f6f9;
 
     ion-tabs{
+      //aqui estan los colores de la tabbar en el fondo
       --ion-tabbar-background-color: #6B7A8F;  
       --ion-tabbar-text-color: #ffffff;      
       --ion-tabbar-text-color-active:  #F7882F;

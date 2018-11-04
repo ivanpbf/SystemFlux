@@ -10,6 +10,8 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./materias.page.scss'],
 })
 export class MateriasPage implements OnInit {
+  //items son el objeto materia
+  //organizados por total, busqueda y luego por periodo
   items: any;
   itemsb: any;
   itemsp1: any;
@@ -33,8 +35,13 @@ export class MateriasPage implements OnInit {
     return new Promise(resolve => {
       this.http.get('http://localhost:3000/materias')
       .pipe(map(res => res.json())).subscribe(items => {
+        //del get recibe todas las materias de la base de datos y los asigna a items
         this.items = items;
+        //itemsb son los items de busqueda, en este caso comienzan indefinidos (vacios)
+        //porque no se ha buscado nada
         this.itemsb = undefined;
+        //luego por periodo filtra los items del get para de esta manera tener las materias por periodo 
+        //como un flujograma
         this.itemsp1 = items.filter((item) => item.periodo === 1);
         this.itemsp2 = items.filter((item) => item.periodo === 2);
         this.itemsp3 = items.filter((item) => item.periodo === 3);
@@ -54,14 +61,16 @@ export class MateriasPage implements OnInit {
 
   getItems(ev) {
 
-    // Reset items back to all of the items
+    // reinicia materias a todas las materias
     this.getMaterias().then(res => {
       this.items = res;
 
-    // set val to the value of the ev target
+    // set val al valor del ev objetivo
     const val = ev.target.value;
 
-    // if the value is an empty string don't filter the items
+    /* si el valor es un string vacio, no filtra los items
+    este metodo filtrara todas las materias tanto por periodo como mostrar en itemsb las mas relevantes
+    que luego seran mostradas al comienzo */
     if (val && val.trim() !== '') {
       this.itemsb = this.items.filter((item) => {
         return (item.name.toLowerCase().indexOf(val.toLowerCase()) > -1);
@@ -133,7 +142,7 @@ export class MateriasPage implements OnInit {
   });
 }
 
-  Go(item: string) {
+  Go(item: string) { //recibe un string que es el id de la materia y navega a la pagina de informacion de la misma
     this.router.navigateByUrl('/materias/' + item);
   }
 
