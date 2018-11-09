@@ -11,7 +11,38 @@
 </ion-header>
 
 <ion-content padding>
-    <ion-item>
-        {{ materiasAprobadas }}
+   <ion-item>
+      Creditos Aprobados:
+      <ion-item item-end>
+        {{creditosAprobados}}
+      </ion-item>
     </ion-item>
+    <ion-item>
+        <ion-label>Mostrar Aprobadas</ion-label>
+        <ion-toggle [(ngModel)]="mostrarAprobadas"></ion-toggle>
+    </ion-item>
+    <ion-item>
+        <ion-label>Mostrar Por Aprobar</ion-label>
+        <ion-toggle [(ngModel)]="mostrarPorAprobar"></ion-toggle>
+    </ion-item>
+    <div *ngIf="mostrarAprobadas">
+        <ion-list>
+            <ion-list-header color="primary" >
+                Materias Aprobadas
+            </ion-list-header>
+            <ion-item *ngFor="let materiaAprobada of materiasAprobadas">
+                {{ materiaAprobada }}
+            </ion-item>
+        </ion-list>
+    </div>
+    <div *ngIf="mostrarPorAprobar">
+            <ion-list>
+                <ion-list-header color="primary" >
+                    Materias Por Aprobar
+                </ion-list-header>
+                <ion-item *ngFor="let materiaPorAprobar of materiasPorAprobar">
+                    {{ materiaPorAprobar.name }}
+                </ion-item>
+            </ion-list>
+        </div>
 </ion-content>

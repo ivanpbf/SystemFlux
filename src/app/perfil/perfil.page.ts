@@ -12,9 +12,13 @@ export class PerfilPage implements OnInit {
 
   //items son todas las materias
   items:any
+  creditosAprobados: number;
   //materiasAprobadas se sacaran de local storage para asignarlas a una lista
   //mostrando asi en el perfil del usuario todas las materias que ha aprobado
   materiasAprobadas: any;
+  materiasPorAprobar: any;
+  mostrarAprobadas: Boolean;
+  mostrarPorAprobar: Boolean;
 
   constructor(public http: Http, public storage: Storage) { 
     this.getMaterias(storage);
@@ -26,14 +30,33 @@ export class PerfilPage implements OnInit {
       .pipe(map(res => res.json())).subscribe(items => {
         //get de la base de datos para asignar a items todas las materias
         this.items = items;
-        storage.get("nombres").then((val)=>{
-          //por lo momentos solo saca la asignada en nombres, son pasos para luego sacar todas las del storage que son aprobadas
-          this.materiasAprobadas=val;
-        })
+        this.creditosAprobados = 0;
+        this.getAprobadas();
+        this.materiasPorAprobar = this.items.filter((item)=>
+          this.materiasAprobadas.indexOf(item.name)<0
+          //por ahora no filtra las que ya estan aprobadas
+        );
         resolve(this.items);
       });
     });
   }
+
+
+  getAprobadas(){
+    this.materiasAprobadas = [];
+    this.creditosAprobados = 0;
+    let cuantas = 0;
+    return this.storage.forEach((aprobada,name) =>{
+      if (name != "undefined"){
+        if(aprobada === true){
+        this.materiasAprobadas.push(name);
+        cuantas = cuantas+1;
+        this.creditosAprobados = cuantas*3;
+        }
+      }
+    }).then(()=> this.materiasAprobadas);
+  }
+  
 
 
   GoBack(){ //metodo que vuelve a la pagina anterior como un navegador comun
@@ -41,6 +64,8 @@ export class PerfilPage implements OnInit {
   }
 
   ngOnInit() {
+    this.mostrarAprobadas = true;
+    this.mostrarPorAprobar = false;
   }
 
 }
