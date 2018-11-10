@@ -33,9 +33,12 @@ export class OfertaPage implements OnInit {
         //como no comienza con busqueda, las materias/items de busqueda (itemsb) esta vacio
         this.itemsb = undefined;
         //filtro de la base de datos para asignar las materias por trimestre Y eliminando las electivas ya que esas abren todos los trimestres
-        this.itemst1 = items.filter((item) => item.T1 === true && item.name != "Electiva");
-        this.itemst2 = items.filter((item) => item.T2 === true && item.name != "Electiva");
-        this.itemst3 = items.filter((item) => item.T3 === true && item.name != "Electiva");
+        this.itemst1 = items.filter((item) => item.T1 === true && item.name != "Electiva 1" && item.name != "Electiva 2" && item.name != "Electiva 3"
+        && item.name != "Electiva 4" && item.name != "Electiva 5" && item.name != "Electiva 6" && item.name != "Electiva 7");
+        this.itemst2 = items.filter((item) => item.T2 === true && item.name != "Electiva 1" && item.name != "Electiva 2" && item.name != "Electiva 3"
+        && item.name != "Electiva 4" && item.name != "Electiva 5" && item.name != "Electiva 6" && item.name != "Electiva 7");
+        this.itemst3 = items.filter((item) => item.T3 === true && item.name != "Electiva 1" && item.name != "Electiva 2" && item.name != "Electiva 3"
+        && item.name != "Electiva 4" && item.name != "Electiva 5" && item.name != "Electiva 6" && item.name != "Electiva 7");
         resolve(this.items);
     });
   });

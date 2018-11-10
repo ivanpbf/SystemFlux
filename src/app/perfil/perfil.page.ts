@@ -47,18 +47,18 @@ export class PerfilPage implements OnInit {
     this.materiasPorAprobar = [];
     this.creditosAprobados = 0;
     let cuantas = 0;
-    let cuantasPA = 0;
+    let cuantasPA = 61;
     return this.storage.forEach((aprobada,name) =>{
       if (name != "undefined"){
         if(aprobada === true){
         this.materiasAprobadas.push(name);
         cuantas = cuantas+1;
+        cuantasPA = cuantasPA-1;
         this.creditosAprobados = cuantas*3;
+        this.cuantasPorAprobar = cuantasPA;
         }
         else{
-          cuantasPA = cuantasPA+1;
           this.materiasPorAprobar.push(name);
-          this.cuantasPorAprobar = cuantasPA;
         }
       }
     }).then(()=> this.materiasAprobadas);
