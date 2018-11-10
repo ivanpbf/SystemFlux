@@ -32,6 +32,9 @@ export class MateriasPage implements OnInit {
   }
 
   getMaterias() {
+    if (this.items) { //si ya las materias existen, no tiene que hacerle un get de nuevo
+      return Promise.resolve(this.items);
+    }
     return new Promise(resolve => {
       this.http.get('http://localhost:3000/materias')
       .pipe(map(res => res.json())).subscribe(items => {

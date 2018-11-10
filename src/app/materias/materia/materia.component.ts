@@ -132,6 +132,7 @@ export class MateriaComponent implements OnInit {
         } else { //sino, los creditos necesarios para ver la materia son 0
           this.creditosParaVer = '0';
         }
+        this.storage.get(this.name).then(aprobada => this.aprobada = aprobada); //esto saca del storage si esta aprobada o no (si fue marcada antes)            
         resolve(this.materia);
       });
     });
@@ -160,7 +161,6 @@ export class MateriaComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');  //del snapshot de la ruta agarra el id y se lo asigna a la materia que se esta viendo
-    this.storage.get(this.name).then(aprobada => this.aprobada = aprobada); //esto saca del storage si esta aprobada o no (si fue marcada antes)    
   }
 
 }
