@@ -13,6 +13,7 @@ export class PerfilPage implements OnInit {
   //items son todas las materias
   items:any
   creditosAprobados: number;
+  cuantasPorAprobar: number;
   //materiasAprobadas se sacaran de local storage para asignarlas a una lista
   //mostrando asi en el perfil del usuario todas las materias que ha aprobado
   materiasAprobadas: any;
@@ -31,11 +32,10 @@ export class PerfilPage implements OnInit {
         //get de la base de datos para asignar a items todas las materias
         this.items = items;
         this.creditosAprobados = 0;
+        items.forEach(materia => {
+          this.storage.set(materia.name, this.storage.get(materia.name));
+        });
         this.getAprobadas();
-        this.materiasPorAprobar = this.items.filter((item)=>
-          this.materiasAprobadas.indexOf(item.name)<0
-          //por ahora no filtra las que ya estan aprobadas
-        );
         resolve(this.items);
       });
     });
@@ -44,14 +44,21 @@ export class PerfilPage implements OnInit {
 
   getAprobadas(){
     this.materiasAprobadas = [];
+    this.materiasPorAprobar = [];
     this.creditosAprobados = 0;
     let cuantas = 0;
+    let cuantasPA = 0;
     return this.storage.forEach((aprobada,name) =>{
       if (name != "undefined"){
         if(aprobada === true){
         this.materiasAprobadas.push(name);
         cuantas = cuantas+1;
         this.creditosAprobados = cuantas*3;
+        }
+        else{
+          cuantasPA = cuantasPA+1;
+          this.materiasPorAprobar.push(name);
+          this.cuantasPorAprobar = cuantasPA;
         }
       }
     }).then(()=> this.materiasAprobadas);

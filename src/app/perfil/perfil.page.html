@@ -18,6 +18,12 @@
       </ion-item>
     </ion-item>
     <ion-item>
+        Materias Restantes:
+        <ion-item item-end>
+          {{cuantasPorAprobar}}
+        </ion-item>
+      </ion-item>
+    <ion-item>
         <ion-label>Mostrar Aprobadas</ion-label>
         <ion-toggle [(ngModel)]="mostrarAprobadas"></ion-toggle>
     </ion-item>
@@ -41,7 +47,7 @@
                     Materias Por Aprobar
                 </ion-list-header>
                 <ion-item *ngFor="let materiaPorAprobar of materiasPorAprobar">
-                    {{ materiaPorAprobar.name }}
+                    {{ materiaPorAprobar }}
                 </ion-item>
             </ion-list>
         </div>
