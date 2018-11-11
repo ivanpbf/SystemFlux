@@ -31,6 +31,7 @@ export class PerfilPage implements OnInit {
       .pipe(map(res => res.json())).subscribe(items => {
         //get de la base de datos para asignar a items todas las materias
         this.items = items;
+        this.cuantasPorAprobar = 61;
         this.creditosAprobados = 0;
         items.forEach(materia => {
           this.storage.set(materia.name, this.storage.get(materia.name));
@@ -65,9 +66,9 @@ export class PerfilPage implements OnInit {
   }
   
 
-
   GoBack(){ //metodo que vuelve a la pagina anterior como un navegador comun
     window.history.back();
+    location.reload();     
   }
 
   ngOnInit() {

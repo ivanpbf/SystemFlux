@@ -14,6 +14,7 @@ export class AjustesPage implements OnInit {
 
   GoBack(){ //metodo que vuelve a la pagina anterior como un navegador comun
     window.history.back();
+    location.reload();     
   }
 
   async Reiniciar(){
