@@ -32,6 +32,7 @@ export class PerfilPage implements OnInit {
       else{
         this.lista = lista;
       }
+      this.revisarCreditosLista();      
     })
   }
 
@@ -42,7 +43,6 @@ export class PerfilPage implements OnInit {
         //get de la base de datos para asignar a items todas las materias
         this.items = items;
         this.cuantasPorAprobar = 61;
-        this.creditosAprobados = 0;
         items.forEach(materia => {
           this.storage.set(materia.name, this.storage.get(materia.name));
         });
@@ -52,11 +52,29 @@ export class PerfilPage implements OnInit {
     });
   }
 
+  revisarCreditosLista(){
+    switch(this.lista){
+      case "lista1":
+      this.creditosAprobados = 18;
+      break;
+      case "lista2":
+      this.creditosAprobados = 15;
+      break;
+      case "lista3":
+      this.creditosAprobados = 15;
+      break;
+      case "lista4":
+      this.creditosAprobados = 9;
+      break;
+      case "lista5":
+      this.creditosAprobados = 0;
+      break;  
+    }
+  }
 
   getAprobadas(){
     this.materiasAprobadas = [];
     this.materiasPorAprobar = [];
-    this.creditosAprobados = 0;
     let cuantas = 0;
     let cuantasPA = 61;
     return this.storage.forEach((aprobada,name) =>{
@@ -65,7 +83,7 @@ export class PerfilPage implements OnInit {
         this.materiasAprobadas.push(name);
         cuantas = cuantas+1;
         cuantasPA = cuantasPA-1;
-        this.creditosAprobados = cuantas*3;
+        this.creditosAprobados = this.creditosAprobados+cuantas*3;
         this.cuantasPorAprobar = cuantasPA;
         }
         else{
@@ -77,6 +95,8 @@ export class PerfilPage implements OnInit {
 
   Seleccionada(){
     this.storage.set("lista", this.lista);
+    this.revisarCreditosLista();      
+    this.getAprobadas();    
   }
   
 
