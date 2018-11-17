@@ -19,8 +19,8 @@ export class AjustesPage implements OnInit {
 
   async Reiniciar(){
     const confirm = await this.alerCtrl.create({
-      header: 'Reinicio de Materias',
-      message: 'Se reiniciaran todas las materias marcadas como aprobadas',
+      header: 'Reinicio de Valores',
+      message: 'Se reiniciaran todas las materias marcadas como aprobadas asi como tambien opciones seleccionadas por el usuario',
       buttons: [
         {
           text: 'Volver',

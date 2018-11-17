@@ -13,6 +13,7 @@ export class PerfilPage implements OnInit {
   //items son todas las materias
   items:any
   creditosAprobados: number;
+  //18 en lista 1
   cuantasPorAprobar: number;
   //materiasAprobadas se sacaran de local storage para asignarlas a una lista
   //mostrando asi en el perfil del usuario todas las materias que ha aprobado
@@ -20,9 +21,18 @@ export class PerfilPage implements OnInit {
   materiasPorAprobar: any;
   mostrarAprobadas: Boolean;
   mostrarPorAprobar: Boolean;
+  lista: any;
 
   constructor(public http: Http, public storage: Storage) { 
-    this.getMaterias(storage);
+    this.getMaterias(storage);   
+    storage.get("lista").then(lista =>{
+      if(lista == undefined){
+        this.lista = "lista1";
+      }
+      else{
+        this.lista = lista;
+      }
+    })
   }
 
   getMaterias(storage) {
@@ -63,6 +73,10 @@ export class PerfilPage implements OnInit {
         }
       }
     }).then(()=> this.materiasAprobadas);
+  }
+
+  Seleccionada(){
+    this.storage.set("lista", this.lista);
   }
   
 

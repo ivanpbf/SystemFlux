@@ -50,6 +50,22 @@ var materiaEsquema = mongoose.Schema({
     T3:{
         type: Boolean,
         required: true
+    },
+    Lista2:{
+        type: Boolean,
+        required: false
+    },
+    Lista3:{
+        type: Boolean,
+        required: false
+    },
+    Lista4:{
+        type: Boolean,
+        required: false
+    },
+    Lista5:{
+        type: Boolean,
+        required: false
     }
 });
 
