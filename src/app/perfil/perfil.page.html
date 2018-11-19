@@ -33,7 +33,7 @@
     </ion-item>
     <ion-item>
         <ion-label>Lista de Ubicacion</ion-label>
-        <ion-select [(ngModel)]="lista" (ionChange)="Seleccionada()">
+        <ion-select [(ngModel)]="lista" (ionChange)="Seleccionada($event)">
             <ion-select-option value="lista1">Lista 1</ion-select-option>
             <ion-select-option value="lista2">Lista 2</ion-select-option>
             <ion-select-option value="lista3">Lista 3</ion-select-option>

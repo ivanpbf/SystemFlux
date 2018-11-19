@@ -31,7 +31,6 @@ mongoose.connection.on('error', (err)=>{
 
 
 app.get('/materias', function(req,res){
-    console.log("conectando a materias")
     Materia.getMaterias(function(err, materias){
         if(err){
             throw err;

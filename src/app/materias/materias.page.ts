@@ -33,12 +33,16 @@ export class MateriasPage implements OnInit {
 
   constructor(private router: Router, public http: Http, public storage: Storage) {
     storage.get("lista").then(lista =>{
+      //este metodo revisa si en el storage hay algo asignado a lista
       if(lista == undefined || lista == "lista1"){
         this.lista = "lista1";
+        storage.set("lista", "lista1"); // asigna a lista 1 tambien aqui si es undefined
         this.mostrarNivelacion = false;
+        //si esta en lista 1 no hace falta ver las materias de nivelacion en el flujograma
       }
       else{
         this.lista = lista;
+        //si la lista es diferente de lista 1, procede a mostrar las materias de nivelacion de la lista (que falten por ver)
         this.mostrarNivelacion = true;
       }   
     })
@@ -60,6 +64,7 @@ export class MateriasPage implements OnInit {
         //luego por periodo filtra los items del get para de esta manera tener las materias por periodo 
         //como un flujograma
         if(this.mostrarNivelacion){
+          //si se mostrara de nivelacion, lo mostrara dependiendo de las materias que falten por pasar en la lista
           this.itemsp0 = items.filter((item) => item.periodo === 0);
           this.itemsp0 = this.itemsp0.filter((item)=>{
             switch(this.lista){
