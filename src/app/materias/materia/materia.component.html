@@ -1,5 +1,5 @@
 <ion-header>
-    <ion-toolbar color="secondary">
+    <ion-toolbar>
       <ion-buttons slot="start">
         <ion-back-button defaultHref="#" (click)="GoBack()"></ion-back-button>
       </ion-buttons>
@@ -28,10 +28,10 @@
     <ion-item *ngIf="prelaciones">
       Prelaciones
     </ion-item>
-    <ion-item (click)="GoPrelaciones(prelacion1)" color="success" *ngIf="prelacion1 !== undefined">
+    <ion-item (click)="GoPrelaciones(prelacion1)"  *ngIf="prelacion1 !== undefined">
       {{prelacion1n}}
     </ion-item>
-    <ion-item (click)="GoPrelaciones(prelacion2)" color="success" *ngIf="prelacion2 !== undefined">
+    <ion-item (click)="GoPrelaciones(prelacion2)"  *ngIf="prelacion2 !== undefined">
     {{prelacion2n}}
     </ion-item>
     
@@ -39,13 +39,13 @@
     <ion-item *ngIf="antelaciones">
       Antelaciones
     </ion-item>
-      <ion-item (click)="GoAntelaciones(antelacion1)" color="success" *ngIf="antelacion1 !== undefined">
+      <ion-item (click)="GoAntelaciones(antelacion1)"  *ngIf="antelacion1 !== undefined">
         {{antelacion1n}}
       </ion-item>
-      <ion-item (click)="GoAntelaciones(antelacion2)" color="success" *ngIf="antelacion2 !== undefined">
+      <ion-item (click)="GoAntelaciones(antelacion2)"  *ngIf="antelacion2 !== undefined">
         {{antelacion2n}}
       </ion-item>
-      <ion-item (click)="GoAntelaciones(antelacion3)" color="success" *ngIf="antelacion3 !== undefined">
+      <ion-item (click)="GoAntelaciones(antelacion3)" *ngIf="antelacion3 !== undefined">
         {{antelacion3n}}
       </ion-item>
 
@@ -71,7 +71,7 @@
 
     <ion-item>
       <ion-label>Aprobada</ion-label>
-      <ion-checkbox [(ngModel)]="aprobada" (ionChange)="checkAprobada()" color="success"></ion-checkbox>
+      <ion-checkbox [(ngModel)]="aprobada" (ionChange)="checkAprobada()" ></ion-checkbox>
     </ion-item>
   </ion-list>
 </ion-content>

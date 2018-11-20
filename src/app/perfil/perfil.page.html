@@ -1,5 +1,5 @@
 <ion-header>
-    <ion-toolbar color="primary">
+    <ion-toolbar>
         <ion-buttons slot="start">
             <ion-back-button defaultHref="#" (click)="GoBack()"></ion-back-button>
           </ion-buttons>
@@ -33,7 +33,7 @@
     </ion-item>
     <div *ngIf="mostrarAprobadas">
         <ion-list>
-            <ion-list-header color="primary" >
+            <ion-list-header >
                 Materias Aprobadas
             </ion-list-header>
             <ion-item *ngFor="let materiaAprobada of materiasAprobadas">
@@ -43,7 +43,7 @@
     </div>
     <div *ngIf="mostrarPorAprobar">
             <ion-list>
-                <ion-list-header color="primary" >
+                <ion-list-header>
                     Materias Por Aprobar
                 </ion-list-header>
                 <ion-item *ngFor="let materiaPorAprobar of materiasPorAprobar">
