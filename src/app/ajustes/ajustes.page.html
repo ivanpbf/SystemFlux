@@ -1,16 +1,42 @@
-<ion-toolbar color="primary">
-  <ion-buttons slot="start">
-    <ion-back-button defaultHref="#" (click)="GoBack()"></ion-back-button>
-  </ion-buttons>
-  <ion-title>Ajustes</ion-title>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="#" (click)="GoBack()"></ion-back-button>
+    </ion-buttons>
+      <ion-title>Ajustes</ion-title>
     <ion-buttons slot="end">
       <ion-menu-button></ion-menu-button>
    </ion-buttons>
-</ion-toolbar>
+  </ion-toolbar>
+</ion-header>
+
+
+
 <ion-content padding>
-  <!-- HEY, si puedes pon este boton largo y en el centro, al fondo de ajustes -->
-  <ion-button (click)="Reiniciar()">
-    Reiniciar Valores de la Aplicacion
-  </ion-button>
+
+    <ion-list>
+        <ion-list-header>
+            <ion-label>Temas</ion-label>
+          </ion-list-header>
+        <ion-item>
+          <ion-button shape="round"  fill="outline" size="small" (click)="changeTheme('UNIMET')">UNIMET</ion-button>
+        </ion-item>
+        <ion-item>
+          <ion-button shape="round"  fill="outline" size="small" (click)="changeTheme('Dark')">Dark</ion-button>
+        </ion-item>
+        <ion-item>
+            <ion-button shape="round"  fill="outline" size="small" (click)="changeTheme('neon')">Neon</ion-button>
+        </ion-item>
+        <ion-item>
+            <ion-button shape="round"  fill="outline" size="small" (click)="changeTheme('default')">Original</ion-button> 
+        </ion-item>
+      </ion-list>
 
 </ion-content>
+<ion-footer translucent = "true">
+    <ion-toolbar>
+      <ion-title>
+        <ion-button (click)="Reiniciar()">Reiniciar Materias</ion-button>
+      </ion-title>
+    </ion-toolbar>
+  </ion-footer>

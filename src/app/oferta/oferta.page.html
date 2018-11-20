@@ -1,5 +1,5 @@
 <ion-header>
-    <ion-toolbar color="primary">
+    <ion-toolbar>
       <ion-buttons slot="start">
         <ion-back-button color="secondary"></ion-back-button>
       </ion-buttons>
@@ -11,7 +11,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-searchbar color="tertiary" (ionInput)="getItems($event)"></ion-searchbar>
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
   <ion-list>
     <ion-item button *ngFor="let itemb of itemsb" block (click)="doConfirm(itemb)">
      <ion-label color="tertiary">
@@ -19,32 +19,32 @@
         </ion-label>
     </ion-item>
 
-    <ion-list-header color="primary">
-      <ion-label color="secondary" position="fixed"> Trimestre 1 </ion-label>
+    <ion-list-header >
+      <ion-label  position="fixed"> Trimestre 1 </ion-label>
     </ion-list-header>
 
     <ion-item button *ngFor="let itemt1 of itemst1" block (click)="doConfirm(itemt1)">
-        <ion-label color="secondary"> 
+        <ion-label> 
             {{itemt1.name}} 
         </ion-label>
     </ion-item> 
 
-    <ion-list-header color="primary"> 
-        <ion-label color="secondary" position="fixed"> Trimestre 2 </ion-label>
+    <ion-list-header> 
+        <ion-label position="fixed"> Trimestre 2 </ion-label>
     </ion-list-header>
 
     <ion-item button *ngFor="let itemt2 of itemst2" block (click)="doConfirm(itemt2)">
-        <ion-label color="secondary"> 
+        <ion-label> 
             {{itemt2.name}} 
         </ion-label>
     </ion-item>
 
-    <ion-list-header color="primary">
-        <ion-label color="secondary" position="fixed"> Trimestre 3 </ion-label>
+    <ion-list-header>
+        <ion-label position="fixed"> Trimestre 3 </ion-label>
     </ion-list-header>
 
     <ion-item button *ngFor="let itemt3 of itemst3" block (click)="doConfirm(itemt3)">
-        <ion-label color="secondary"> 
+        <ion-label> 
             {{itemt3.name}} 
         </ion-label>
     </ion-item> 
