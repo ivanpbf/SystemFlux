@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
+import { Storage } from '@ionic/storage';
 
 
 @Component({
@@ -12,8 +13,11 @@ import { map } from 'rxjs/operators';
 export class MateriasPage implements OnInit {
   //items son el objeto materia
   //organizados por total, busqueda y luego por periodo
+  lista: any;  
   items: any;
   itemsb: any;
+  itemsp0: any;
+  mostrarNivelacion: Boolean;
   itemsp1: any;
   itemsp2: any;
   itemsp3: any;
@@ -27,7 +31,21 @@ export class MateriasPage implements OnInit {
   itemsp11: any;
   itemsp12: any;
 
-  constructor(private router: Router, public http: Http) {
+  constructor(private router: Router, public http: Http, public storage: Storage) {
+    storage.get("lista").then(lista =>{
+      //este metodo revisa si en el storage hay algo asignado a lista
+      if(lista == undefined || lista == "lista1"){
+        this.lista = "lista1";
+        storage.set("lista", "lista1"); // asigna a lista 1 tambien aqui si es undefined
+        this.mostrarNivelacion = false;
+        //si esta en lista 1 no hace falta ver las materias de nivelacion en el flujograma
+      }
+      else{
+        this.lista = lista;
+        //si la lista es diferente de lista 1, procede a mostrar las materias de nivelacion de la lista (que falten por ver)
+        this.mostrarNivelacion = true;
+      }   
+    })
     this.getMaterias();
   }
 
@@ -45,6 +63,22 @@ export class MateriasPage implements OnInit {
         this.itemsb = undefined;
         //luego por periodo filtra los items del get para de esta manera tener las materias por periodo 
         //como un flujograma
+        if(this.mostrarNivelacion){
+          //si se mostrara de nivelacion, lo mostrara dependiendo de las materias que falten por pasar en la lista
+          this.itemsp0 = items.filter((item) => item.periodo === 0);
+          this.itemsp0 = this.itemsp0.filter((item)=>{
+            switch(this.lista){
+              case "lista2":
+              return item.lista2 === true;
+              case "lista3":
+              return item.lista3 === true;
+              case "lista4":
+              return item.lista4 === true;
+              case "lista5":
+              return item.lista5 === true;
+            }
+          });
+        }
         this.itemsp1 = items.filter((item) => item.periodo === 1);
         this.itemsp2 = items.filter((item) => item.periodo === 2);
         this.itemsp3 = items.filter((item) => item.periodo === 3);
@@ -81,6 +115,11 @@ export class MateriasPage implements OnInit {
     }
     if (val.trim() === '') {
       this.itemsb = undefined;
+    }
+    if (val && val.trim() !== '') {
+      this.itemsp0 = this.itemsp0.filter((item) => {
+        return (item.name.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      });
     }
     if (val && val.trim() !== '') {
       this.itemsp1 = this.itemsp1.filter((item) => {
@@ -150,6 +189,7 @@ export class MateriasPage implements OnInit {
   }
 
   ngOnInit() {
+    this.mostrarNivelacion = false;
   }
 
 }

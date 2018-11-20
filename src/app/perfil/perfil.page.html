@@ -25,12 +25,23 @@
       </ion-item>
     <ion-item>
         <ion-label>Mostrar Aprobadas</ion-label>
-        <ion-toggle [(ngModel)]="mostrarAprobadas"></ion-toggle>
+        <ion-toggle  color="success" [(ngModel)]="mostrarAprobadas"></ion-toggle>
     </ion-item>
     <ion-item>
         <ion-label>Mostrar Por Aprobar</ion-label>
-        <ion-toggle [(ngModel)]="mostrarPorAprobar"></ion-toggle>
+        <ion-toggle  color="success" [(ngModel)]="mostrarPorAprobar"></ion-toggle>
     </ion-item>
+    <ion-item>
+        <ion-label>Lista de Ubicacion</ion-label>
+        <ion-select [(ngModel)]="lista" (ionChange)="Seleccionada($event)">
+            <ion-select-option value="lista1">Lista 1</ion-select-option>
+            <ion-select-option value="lista2">Lista 2</ion-select-option>
+            <ion-select-option value="lista3">Lista 3</ion-select-option>
+            <ion-select-option value="lista4">Lista 4</ion-select-option>
+            <ion-select-option value="lista5">Lista 5</ion-select-option>
+        </ion-select>
+      </ion-item>
+
     <div *ngIf="mostrarAprobadas">
         <ion-list>
             <ion-list-header >

@@ -4,11 +4,10 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'tabs',
+    redirectTo: '/tabs/(home:home)',
     pathMatch: 'full'
   },
   { path: '', loadChildren: './tabs/tabs.module#TabsPageModule' },
-
   { path: 'home', loadChildren: './home/home.module#HomePageModule' },
   { path: 'materias', loadChildren: './materias/materias.module#MateriasPageModule'},
   { path: 'oferta', loadChildren: './oferta/oferta.module#OfertaPageModule'},

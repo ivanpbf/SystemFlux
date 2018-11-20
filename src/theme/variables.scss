@@ -67,11 +67,24 @@
     --ion-color-light-shade: #d7d8da;
     --ion-color-light-tint: #f5f6f9;
 
-    // ion-tabs{
-    //   //aqui estan los colores de la tabbar en el fondo
-    //   --ion-tabbar-background-color: #6B7A8F;  
-    //   --ion-tabbar-text-color: #ffffff;      
-    //   --ion-tabbar-text-color-active:  #F7882F;
-    // }
+// <<<<<<< theme
+//     // ion-tabs{
+//     //   //aqui estan los colores de la tabbar en el fondo
+//     //   --ion-tabbar-background-color: #6B7A8F;  
+//     //   --ion-tabbar-text-color: #ffffff;      
+//     //   --ion-tabbar-text-color-active:  #F7882F;
+//     // }
+// =======
+//     ion-tabs{
+//       //aqui estan los colores de la tabbar en el fondo
+//       --ion-tabbar-background-color: var(--ion-color-primary);  
+//       --ion-tabbar-text-color: #ffffff;      
+//       --ion-tabbar-text-color-active:  var(--ion-color-secondary);
+//     }
+//     ion-select {
+//       //color de las opciones
+//       color: var(--ion-color-success)  !important; //el color de success
+//     }
+// >>>>>>> master
   }
   

@@ -19,8 +19,18 @@
       <ion-item button *ngFor="let itemb of itemsb" (click)="Go(itemb._id)">
         {{itemb.name}}
       </ion-item>
-      <ion-list-header >
-          <ion-label position="fixed"> Periodo 1 </ion-label>
+
+      <div *ngIf="mostrarNivelacion">
+        <ion-list-header color="primary" >
+          <ion-label color="secondary" position="fixed"> Nivelacion </ion-label>
+        </ion-list-header>
+        <ion-item button *ngFor="let itemp0 of itemsp0" (click)="Go(itemp0._id)">
+          <ion-label color="secondary"> {{itemp0.name}} </ion-label>
+        </ion-item>
+      </div> 
+      <ion-list-header color="primary" >
+          <ion-label color="secondary" position="fixed"> Periodo 1 </ion-label>
+
         </ion-list-header>
       <ion-item button *ngFor="let itemp1 of itemsp1" (click)="Go(itemp1._id)">
           <ion-label > {{itemp1.name}} </ion-label>
