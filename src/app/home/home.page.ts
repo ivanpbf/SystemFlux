@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ThemeService } from '../theme.service';
 
 @Component({
   selector: 'app-home',
@@ -8,5 +9,6 @@ import { Router } from '@angular/router';
 })
 
 export class HomePage {
+  constructor(private theme: ThemeService) { }
 
 }

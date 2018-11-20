@@ -3,6 +3,7 @@ import { Http, Headers } from '@angular/http';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { Storage } from '@ionic/storage';
+import { ThemeService } from '../theme.service';
 
 
 @Component({
@@ -11,9 +12,9 @@ import { Storage } from '@ionic/storage';
   styleUrls: ['./materias.page.scss'],
 })
 export class MateriasPage implements OnInit {
-  //items son el objeto materia
-  //organizados por total, busqueda y luego por periodo
-  lista: any;  
+  // items son el objeto materia
+  // organizados por total, busqueda y luego por periodo
+  lista: any;
   items: any;
   itemsb: any;
   itemsp0: any;
@@ -30,51 +31,62 @@ export class MateriasPage implements OnInit {
   itemsp10: any;
   itemsp11: any;
   itemsp12: any;
+  mostrarP1: Boolean;
+  mostrarP2: Boolean;
+  mostrarP3: Boolean;
+  mostrarP4: Boolean;
+  mostrarP5: Boolean;
+  mostrarP6: Boolean;
+  mostrarP7: Boolean;
+  mostrarP8: Boolean;
+  mostrarP9: Boolean;
+  mostrarP10: Boolean;
+  mostrarP11: Boolean;
+  mostrarP12: Boolean;
 
-  constructor(private router: Router, public http: Http, public storage: Storage) {
-    storage.get("lista").then(lista =>{
-      //este metodo revisa si en el storage hay algo asignado a lista
-      if(lista == undefined || lista == "lista1"){
-        this.lista = "lista1";
-        storage.set("lista", "lista1"); // asigna a lista 1 tambien aqui si es undefined
+  constructor(private router: Router, public http: Http, public storage: Storage, private theme: ThemeService) {
+    storage.get('lista').then(lista => {
+      // este metodo revisa si en el storage hay algo asignado a lista
+      if (lista === undefined || lista === 'lista1') {
+        this.lista = 'lista1';
+        storage.set('lista', 'lista1'); // asigna a lista 1 tambien aqui si es undefined
         this.mostrarNivelacion = false;
-        //si esta en lista 1 no hace falta ver las materias de nivelacion en el flujograma
-      }
-      else{
+        // si esta en lista 1 no hace falta ver las materias de nivelacion en el flujograma
+      } else {
         this.lista = lista;
-        //si la lista es diferente de lista 1, procede a mostrar las materias de nivelacion de la lista (que falten por ver)
+        // si la lista es diferente de lista 1, procede a mostrar las materias de nivelacion de la lista (que falten por ver)
         this.mostrarNivelacion = true;
-      }   
-    })
+      }
+    });
     this.getMaterias();
   }
 
   getMaterias() {
-    if (this.items) { //si ya las materias existen, no tiene que hacerle un get de nuevo
+    if (this.items) { // si ya las materias existen, no tiene que hacerle un get de nuevo
       return Promise.resolve(this.items);
     }
     return new Promise(resolve => {
       this.http.get('http://localhost:3000/materias')
       .pipe(map(res => res.json())).subscribe(items => {
-        //del get recibe todas las materias de la base de datos y los asigna a items
+        // del get recibe todas las materias de la base de datos y los asigna a items
         this.items = items;
-        //itemsb son los items de busqueda, en este caso comienzan indefinidos (vacios)
-        //porque no se ha buscado nada
+        // itemsb son los items de busqueda, en este caso comienzan indefinidos (vacios)
+        // porque no se ha buscado nada
         this.itemsb = undefined;
-        //luego por periodo filtra los items del get para de esta manera tener las materias por periodo 
-        //como un flujograma
-        if(this.mostrarNivelacion){
-          //si se mostrara de nivelacion, lo mostrara dependiendo de las materias que falten por pasar en la lista
+        // luego por periodo filtra los items del get para de esta manera tener las materias por periodo
+        // como un flujograma
+        if (this.mostrarNivelacion) {
+          // si se mostrara de nivelacion, lo mostrara dependiendo de las materias que falten por pasar en la lista
           this.itemsp0 = items.filter((item) => item.periodo === 0);
-          this.itemsp0 = this.itemsp0.filter((item)=>{
-            switch(this.lista){
-              case "lista2":
+          this.itemsp0 = this.itemsp0.filter((item) => {
+            switch (this.lista) {
+              case 'lista2':
               return item.lista2 === true;
-              case "lista3":
+              case 'lista3':
               return item.lista3 === true;
-              case "lista4":
+              case 'lista4':
               return item.lista4 === true;
-              case "lista5":
+              case 'lista5':
               return item.lista5 === true;
             }
           });
@@ -184,12 +196,26 @@ export class MateriasPage implements OnInit {
   });
 }
 
-  Go(item: string) { //recibe un string que es el id de la materia y navega a la pagina de informacion de la misma
+ // recibe un string que es el id de la materia y navega a la pagina de informacion de la misma
+  Go(item: string) {
     this.router.navigateByUrl('/materias/' + item);
   }
 
   ngOnInit() {
     this.mostrarNivelacion = false;
+    this.mostrarP1 = false;
+    this.mostrarP2 = false;
+    this.mostrarP3 = false;
+    this.mostrarP4 = false;
+    this.mostrarP5 = false;
+    this.mostrarP6 = false;
+    this.mostrarP7 = false;
+    this.mostrarP8 = false;
+    this.mostrarP9 = false;
+    this.mostrarP10 = false;
+    this.mostrarP11 = false;
+    this.mostrarP12 = false;
+
   }
 
 }

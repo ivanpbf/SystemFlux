@@ -19,7 +19,36 @@
         </ion-label>
     </ion-item>
 
-    <ion-list-header >
+    <ion-list-header>
+            <ion-label position="fixed"> Trimestre 1 </ion-label>
+            <ion-toggle  color="success" [(ngModel)]="mostrarT1"></ion-toggle>
+          </ion-list-header>
+        <ion-item-group *ngIf="mostrarT1">       
+            <ion-item button *ngFor="let itemt1 of itemst1" (click)="Go(itemt1._id)">
+                <ion-label > {{itemt1.name}} </ion-label>
+            </ion-item>
+          </ion-item-group>
+
+    <ion-list-header>
+            <ion-label position="fixed"> Trimestre 2 </ion-label>
+            <ion-toggle  color="success" [(ngModel)]="mostrarT2"></ion-toggle>
+          </ion-list-header>
+        <ion-item-group *ngIf="mostrarT2">       
+            <ion-item button *ngFor="let itemt2 of itemst2" (click)="Go(itemt2._id)">
+                <ion-label > {{itemt2.name}} </ion-label>
+            </ion-item>
+          </ion-item-group>
+
+    <ion-list-header>
+            <ion-label position="fixed"> Trimestre 3 </ion-label>
+            <ion-toggle  color="success" [(ngModel)]="mostrarT3"></ion-toggle>
+          </ion-list-header>
+        <ion-item-group *ngIf="mostrarT3">       
+            <ion-item button *ngFor="let itemt3 of itemst3" (click)="Go(itemt3._id)">
+                <ion-label > {{itemt3.name}} </ion-label>
+            </ion-item>
+          </ion-item-group>
+    <!-- <ion-list-header >
       <ion-label  position="fixed"> Trimestre 1 </ion-label>
     </ion-list-header>
 
@@ -47,7 +76,7 @@
         <ion-label> 
             {{itemt3.name}} 
         </ion-label>
-    </ion-item> 
+    </ion-item>  -->
 
     </ion-list>
 </ion-content>

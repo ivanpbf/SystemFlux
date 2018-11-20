@@ -25,29 +25,34 @@
       </ion-item>
     </ion-item>
     
+
     <ion-item *ngIf="prelaciones">
       Prelaciones
     </ion-item>
-    <ion-item (click)="GoPrelaciones(prelacion1)"  *ngIf="prelacion1 !== undefined">
-      {{prelacion1n}}
-    </ion-item>
-    <ion-item (click)="GoPrelaciones(prelacion2)"  *ngIf="prelacion2 !== undefined">
-    {{prelacion2n}}
-    </ion-item>
+    <ion-item> 
+        <ion-button size="small" shape="round" color="primary" fill="outline" (click)="GoPrelaciones(prelacion1)"  *ngIf="prelacion1 !== undefined" >{{prelacion1n}}</ion-button>
+      </ion-item>
+    <ion-item  *ngIf="prelacion2 !== undefined" >  
+        <ion-button size="small" shape="round" color="primary" fill="outline" (click)="GoPrelaciones(prelacion2)">{{prelacion2n}}</ion-button>
+      </ion-item>
     
     
     <ion-item *ngIf="antelaciones">
       Antelaciones
     </ion-item>
-      <ion-item (click)="GoAntelaciones(antelacion1)"  *ngIf="antelacion1 !== undefined">
-        {{antelacion1n}}
-      </ion-item>
-      <ion-item (click)="GoAntelaciones(antelacion2)"  *ngIf="antelacion2 !== undefined">
-        {{antelacion2n}}
-      </ion-item>
-      <ion-item (click)="GoAntelaciones(antelacion3)" *ngIf="antelacion3 !== undefined">
-        {{antelacion3n}}
-      </ion-item>
+
+      <ion-item *ngIf="antelacion1 !== undefined"> 
+          <ion-button size="small" shape="round" color="primary" fill="outline" (click)="GoAntelaciones(antelacion1)">{{antelacion1n}}</ion-button>
+        </ion-item>
+
+      <ion-item *ngIf="antelacion2 !== undefined"> 
+            <ion-button size="small" shape="round" color="primary" fill="outline" (click)="GoAntelaciones(antelacion2)">{{antelacion2n}}</ion-button>
+          </ion-item>
+      
+      <ion-item *ngIf="antelacion3 !== undefined"> 
+            <ion-button size="small" shape="round" color="primary" fill="outline" (click)="GoAntelaciones(antelacion3)">{{antelacion1n}}</ion-button>
+          </ion-item>
+
 
     <ion-item>
       Creditos Para Ver

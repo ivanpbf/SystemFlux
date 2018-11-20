@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ThemeService } from '../theme.service';
 
 @Component({
   selector: 'app-informacion',
@@ -7,14 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InformacionPage implements OnInit {
 
-  constructor() { }
+  constructor(private theme: ThemeService) { }
 
-  GoBack(){ //metodo que vuelve a la pagina anterior como un navegador comun
+   // metodo que vuelve a la pagina anterior como un navegador comun
+  GoBack() {
     window.history.back();
-    location.reload();     
   }
-  
+
   ngOnInit() {
   }
-  
+
 }

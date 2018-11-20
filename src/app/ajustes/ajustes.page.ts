@@ -5,26 +5,26 @@ import { ThemeService } from '../theme.service';
 
 const themes = {
   UNIMET: {
-    primary: '#FF7700',
-    secondary: '#2C6EE8',
-    tertiary: '#7F7F7F',
-    success: '#DCC7AA',
-    warning: '#a0d3ff',
-    danger: '#f04141',
-    medium: '#BCC2C7',
-    dark: '#FFFFFF',
-    light: '#000000'
+    primary: '#e16802',
+    secondary: '#676767',
+    tertiary: '#003ec3',
+    success: '#67e427',
+    warning: '#7deef8',
+    danger: '#f7ef42',
+    dark: '#673002',
+    medium: '#989aa2',
+    light: '#ffefef'
   },
   Dark: {
     primary: '#0C0C0C',
     secondary: '#566D72',
     tertiary: '#9EA8A1',
     success: '#3F000E',
-    warning: '#a0d3ff',
-    danger: '#f04141',
-    dark: '#FDE8DF',
-    medium: '#BCC2C7',
-    light: '#FFFFFF'
+    warning: '#842f8e',
+    danger: '#789217',
+    dark: '#f4f5f8',
+    medium: '#989aa2',
+    light: '#222428'
   },
   neon: {
     primary: '#39BFBD',
@@ -64,9 +64,10 @@ export class AjustesPage implements OnInit {
     this.theme.setTheme(themes[name]);
   }
 
-  GoBack() { // metodo que vuelve a la pagina anterior como un navegador comun
+  // metodo que vuelve a la pagina anterior como un navegador comun
+  GoBack() {
     window.history.back();
-    location.reload();
+    // location.reload();
   }
 
   async Reiniciar() {
