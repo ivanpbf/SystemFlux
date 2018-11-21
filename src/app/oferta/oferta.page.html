@@ -1,9 +1,9 @@
 <ion-header>
-    <ion-toolbar>
+    <ion-toolbar color = "primary">
       <ion-buttons slot="start">
         <ion-back-button color="secondary"></ion-back-button>
       </ion-buttons>
-      <ion-title>Oferta</ion-title>
+      <ion-title color = "secondary">Oferta</ion-title>
         <ion-buttons slot="end">
           <ion-menu-button></ion-menu-button>
        </ion-buttons>
@@ -20,7 +20,8 @@
     </ion-item>
 
     <ion-list-header>
-            <ion-label position="fixed"> Trimestre 1 </ion-label>
+
+            <ion-title position="fixed" color="success">Trimestre 1 </ion-title>
             <ion-toggle  color="success" [(ngModel)]="mostrarT1"></ion-toggle>
           </ion-list-header>
         <ion-item-group *ngIf="mostrarT1">       
@@ -30,7 +31,7 @@
           </ion-item-group>
 
     <ion-list-header>
-            <ion-label position="fixed"> Trimestre 2 </ion-label>
+            <ion-title position="fixed" color="success">Trimestre 2 </ion-title>
             <ion-toggle  color="success" [(ngModel)]="mostrarT2"></ion-toggle>
           </ion-list-header>
         <ion-item-group *ngIf="mostrarT2">       
@@ -40,7 +41,7 @@
           </ion-item-group>
 
     <ion-list-header>
-            <ion-label position="fixed"> Trimestre 3 </ion-label>
+            <ion-title position="fixed" color="success">Trimestre 3 </ion-title>
             <ion-toggle  color="success" [(ngModel)]="mostrarT3"></ion-toggle>
           </ion-list-header>
         <ion-item-group *ngIf="mostrarT3">       
@@ -48,35 +49,5 @@
                 <ion-label > {{itemt3.name}} </ion-label>
             </ion-item>
           </ion-item-group>
-    <!-- <ion-list-header >
-      <ion-label  position="fixed"> Trimestre 1 </ion-label>
-    </ion-list-header>
-
-    <ion-item button *ngFor="let itemt1 of itemst1" block (click)="doConfirm(itemt1)">
-        <ion-label> 
-            {{itemt1.name}} 
-        </ion-label>
-    </ion-item> 
-
-    <ion-list-header> 
-        <ion-label position="fixed"> Trimestre 2 </ion-label>
-    </ion-list-header>
-
-    <ion-item button *ngFor="let itemt2 of itemst2" block (click)="doConfirm(itemt2)">
-        <ion-label> 
-            {{itemt2.name}} 
-        </ion-label>
-    </ion-item>
-
-    <ion-list-header>
-        <ion-label position="fixed"> Trimestre 3 </ion-label>
-    </ion-list-header>
-
-    <ion-item button *ngFor="let itemt3 of itemst3" block (click)="doConfirm(itemt3)">
-        <ion-label> 
-            {{itemt3.name}} 
-        </ion-label>
-    </ion-item>  -->
-
     </ion-list>
 </ion-content>

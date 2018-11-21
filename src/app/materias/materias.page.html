@@ -1,9 +1,9 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color = "primary">
     <ion-buttons>
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>materias</ion-title>
+    <ion-title color = "secondary">materias</ion-title>
       <ion-buttons slot="end">
         <ion-menu-button></ion-menu-button>
      </ion-buttons>
@@ -22,7 +22,7 @@
 
       <div *ngIf="mostrarNivelacion">
         <ion-list-header >
-          <ion-label position="fixed"> Nivelacion </ion-label>
+          <ion-title position="fixed" color="success"> Nivelacion </ion-title>
         </ion-list-header>
         <ion-item button *ngFor="let itemp0 of itemsp0" (click)="Go(itemp0._id)">
           <ion-label> {{itemp0.name}} </ion-label>
@@ -30,8 +30,8 @@
       </div> 
 
       <ion-list-header>
-          <ion-label position="fixed"> Periodo 1 </ion-label>
-          <ion-toggle  color="success" [(ngModel)]="mostrarP1"></ion-toggle>
+          <ion-title position="fixed" color ="success"> Periodo 1 </ion-title>
+          <ion-toggle  color="secondary" [(ngModel)]="mostrarP1"></ion-toggle>
         </ion-list-header>
       <ion-item-group *ngIf="mostrarP1">       
           <ion-item button *ngFor="let itemp1 of itemsp1" (click)="Go(itemp1._id)">
@@ -40,8 +40,8 @@
         </ion-item-group>
 
       <ion-list-header>
-          <ion-label position="fixed"> Periodo 2 </ion-label>
-          <ion-toggle  color="success" [(ngModel)]="mostrarP2"></ion-toggle>
+          <ion-title position="fixed" color ="success"> Periodo 2 </ion-title>
+          <ion-toggle  color="secondary" [(ngModel)]="mostrarP2"></ion-toggle>
         </ion-list-header>
       <ion-item-group *ngIf="mostrarP2">       
           <ion-item button *ngFor="let itemp2 of itemsp2" (click)="Go(itemp2._id)">
@@ -50,8 +50,8 @@
         </ion-item-group>
 
         <ion-list-header>
-            <ion-label position="fixed"> Periodo 3 </ion-label>
-            <ion-toggle  color="success" [(ngModel)]="mostrarP3"></ion-toggle>
+            <ion-title position="fixed" color ="success"> Periodo 3 </ion-title>
+            <ion-toggle  color="secondary" [(ngModel)]="mostrarP3"></ion-toggle>
           </ion-list-header>
         <ion-item-group *ngIf="mostrarP3">       
             <ion-item button *ngFor="let itemp3 of itemsp3" (click)="Go(itemp3._id)">
@@ -61,8 +61,8 @@
           
 
           <ion-list-header>
-              <ion-label position="fixed"> Periodo 4 </ion-label>
-              <ion-toggle  color="success" [(ngModel)]="mostrarP4"></ion-toggle>
+              <ion-title position="fixed" color ="success"> Periodo 4 </ion-title>
+              <ion-toggle  color="secondary" [(ngModel)]="mostrarP4"></ion-toggle>
             </ion-list-header>
           <ion-item-group *ngIf="mostrarP4">       
               <ion-item button *ngFor="let itemp4 of itemsp4" (click)="Go(itemp4._id)">
@@ -72,8 +72,8 @@
             
 
             <ion-list-header>
-                <ion-label position="fixed"> Periodo 5 </ion-label>
-                <ion-toggle  color="success" [(ngModel)]="mostrarP5"></ion-toggle>
+                <ion-title position="fixed" color ="success"> Periodo 5 </ion-title>
+                <ion-toggle  color="secondary" [(ngModel)]="mostrarP5"></ion-toggle>
               </ion-list-header>
             <ion-item-group *ngIf="mostrarP5">       
                 <ion-item button *ngFor="let itemp5 of itemsp5" (click)="Go(itemp5._id)">
@@ -83,8 +83,8 @@
               
 
               <ion-list-header>
-                  <ion-label position="fixed"> Periodo 6 </ion-label>
-                  <ion-toggle  color="success" [(ngModel)]="mostrarP6"></ion-toggle>
+                  <ion-title position="fixed" color ="success"> Periodo 6 </ion-title>
+                  <ion-toggle  color="secondary" [(ngModel)]="mostrarP6"></ion-toggle>
                 </ion-list-header>
               <ion-item-group *ngIf="mostrarP6">       
                   <ion-item button *ngFor="let itemp6 of itemsp6" (click)="Go(itemp6._id)">
@@ -93,8 +93,8 @@
                 </ion-item-group>
 
                 <ion-list-header>
-                    <ion-label position="fixed"> Periodo 7 </ion-label>
-                    <ion-toggle  color="success" [(ngModel)]="mostrarP7"></ion-toggle>
+                    <ion-title position="fixed" color ="success"> Periodo 7 </ion-title>
+                    <ion-toggle  color="secondary" [(ngModel)]="mostrarP7"></ion-toggle>
                   </ion-list-header>
                 <ion-item-group *ngIf="mostrarP7">       
                     <ion-item button *ngFor="let itemp7 of itemsp7" (click)="Go(itemp7._id)">
@@ -103,8 +103,8 @@
                   </ion-item-group>
 
                   <ion-list-header>
-                      <ion-label position="fixed"> Periodo 8 </ion-label>
-                      <ion-toggle  color="success" [(ngModel)]="mostrarP8"></ion-toggle>
+                      <ion-title position="fixed" color ="success"> Periodo 8 </ion-title>
+                      <ion-toggle  color="secondary" [(ngModel)]="mostrarP8"></ion-toggle>
                     </ion-list-header>
                   <ion-item-group *ngIf="mostrarP8">       
                       <ion-item button *ngFor="let itemp8 of itemsp8" (click)="Go(itemp8._id)">
@@ -113,8 +113,8 @@
                     </ion-item-group>
 
                     <ion-list-header>
-                        <ion-label position="fixed"> Periodo 9 </ion-label>
-                        <ion-toggle  color="success" [(ngModel)]="mostrarP9"></ion-toggle>
+                        <ion-title position="fixed" color ="success"> Periodo 9 </ion-title>
+                        <ion-toggle  color="secondary" [(ngModel)]="mostrarP9"></ion-toggle>
                       </ion-list-header>
                     <ion-item-group *ngIf="mostrarP9">       
                         <ion-item button *ngFor="let itemp9 of itemsp9" (click)="Go(itemp9._id)">
@@ -123,8 +123,8 @@
                       </ion-item-group>
 
                       <ion-list-header>
-                          <ion-label position="fixed"> Periodo 10 </ion-label>
-                          <ion-toggle  color="success" [(ngModel)]="mostrarP10"></ion-toggle>
+                          <ion-title position="fixed" color ="success"> Periodo 10 </ion-title>
+                          <ion-toggle  color="secondary" [(ngModel)]="mostrarP10"></ion-toggle>
                         </ion-list-header>
                       <ion-item-group *ngIf="mostrarP10">       
                           <ion-item button *ngFor="let itemp10 of itemsp10" (click)="Go(itemp10._id)">
@@ -133,8 +133,8 @@
                         </ion-item-group>
 
                         <ion-list-header>
-                            <ion-label position="fixed"> Periodo 11 </ion-label>
-                            <ion-toggle  color="success" [(ngModel)]="mostrarP11"></ion-toggle>
+                            <ion-title position="fixed" color ="success"> Periodo 11 </ion-title>
+                            <ion-toggle  color="secondary" [(ngModel)]="mostrarP11"></ion-toggle>
                           </ion-list-header>
                         <ion-item-group *ngIf="mostrarP11">       
                             <ion-item button *ngFor="let itemp11 of itemsp11" (click)="Go(itemp11._id)">
@@ -142,8 +142,8 @@
                             </ion-item>
                           </ion-item-group>
                           <ion-list-header>
-                              <ion-label position="fixed"> Periodo 12 </ion-label>
-                              <ion-toggle  color="success" [(ngModel)]="mostrarP12"></ion-toggle>
+                              <ion-title position="fixed" color ="success"> Periodo 12 </ion-title>
+                              <ion-toggle  color="secondary" [(ngModel)]="mostrarP12"></ion-toggle>
                             </ion-list-header>
                           <ion-item-group *ngIf="mostrarP12">       
                               <ion-item button *ngFor="let itemp12 of itemsp12" (click)="Go(itemp12._id)">

@@ -2,17 +2,17 @@
   <ion-split-pane>
     <ion-menu>
       <ion-header>
-        <ion-toolbar>
-          <ion-title>SystemFlux</ion-title>
+        <ion-toolbar color = "primary">
+          <ion-title color = "tertiary">SystemFlux</ion-title>
         </ion-toolbar>
       </ion-header>
       <ion-content>
         <ion-list>
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
-            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
-              <ion-icon  slot="start" [name]="p.icon"></ion-icon>
+            <ion-item color = "light" [routerDirection]="'root'" [routerLink]="[p.url]">
+              <ion-icon color = "tertiary" slot="start" [name]="p.icon"></ion-icon>
               <ion-label>
-                  <ion-title>{{p.title}}</ion-title>
+                  <ion-title color = "primary">{{p.title}}</ion-title>
               </ion-label>
             </ion-item>
           </ion-menu-toggle>
@@ -21,6 +21,4 @@
     </ion-menu>
     <ion-router-outlet main></ion-router-outlet>
   </ion-split-pane>
-
-  
 </ion-app>

@@ -8,7 +8,7 @@ const themes = {
     primary: '#e16802',
     secondary: '#676767',
     tertiary: '#003ec3',
-    success: '#67e427',
+    success: '#676767',
     warning: '#7deef8',
     danger: '#f7ef42',
     dark: '#673002',
