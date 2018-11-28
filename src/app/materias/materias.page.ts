@@ -62,9 +62,6 @@ export class MateriasPage implements OnInit {
   }
 
   getMaterias() {
-    if (this.items) { // si ya las materias existen, no tiene que hacerle un get de nuevo
-      return Promise.resolve(this.items);
-    }
     return new Promise(resolve => {
       this.http.get('http://localhost:3000/materias')
       .pipe(map(res => res.json())).subscribe(items => {
@@ -203,18 +200,18 @@ export class MateriasPage implements OnInit {
 
   ngOnInit() {
     this.mostrarNivelacion = false;
-    this.mostrarP1 = false;
-    this.mostrarP2 = false;
-    this.mostrarP3 = false;
-    this.mostrarP4 = false;
-    this.mostrarP5 = false;
-    this.mostrarP6 = false;
-    this.mostrarP7 = false;
-    this.mostrarP8 = false;
-    this.mostrarP9 = false;
-    this.mostrarP10 = false;
-    this.mostrarP11 = false;
-    this.mostrarP12 = false;
+    this.mostrarP1 = true;
+    this.mostrarP2 = true;
+    this.mostrarP3 = true;
+    this.mostrarP4 = true;
+    this.mostrarP5 = true;
+    this.mostrarP6 = true;
+    this.mostrarP7 = true;
+    this.mostrarP8 = true;
+    this.mostrarP9 = true;
+    this.mostrarP10 = true;
+    this.mostrarP11 = true;
+    this.mostrarP12 = true;
 
   }
 
