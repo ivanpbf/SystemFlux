@@ -35,7 +35,7 @@ export class PerfilPage implements OnInit {
       return Promise.resolve(this.items);
     }
     return new Promise(resolve => {
-      this.http.get('http://localhost:3000/materias')
+      this.http.get('https://apiflux.herokuapp.com/materias')
       .pipe(map(res => res.json())).subscribe(items => {
         // get de la base de datos para asignar a items todas las materias
         this.items = items;

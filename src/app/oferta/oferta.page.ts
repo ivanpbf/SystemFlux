@@ -31,7 +31,7 @@ export class OfertaPage implements OnInit {
 
   getMaterias() {
     return new Promise(resolve => {
-      this.http.get('http://localhost:3000/materias')
+      this.http.get('https://apiflux.herokuapp.com/materias')
       .pipe(map(res => res.json())).subscribe(items => {
         // asigna a items todas las materias de la base de datos recolectadas por el get
         this.items = items.filter((item) => item.name !== 'Electiva');

@@ -63,7 +63,7 @@ export class MateriasPage implements OnInit {
 
   getMaterias() {
     return new Promise(resolve => {
-      this.http.get('http://localhost:3000/materias')
+      this.http.get('https://apiflux.herokuapp.com/materias')
       .pipe(map(res => res.json())).subscribe(items => {
         // del get recibe todas las materias de la base de datos y los asigna a items
         this.items = items;

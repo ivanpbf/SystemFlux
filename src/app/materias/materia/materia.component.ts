@@ -44,7 +44,7 @@ export class MateriaComponent implements OnInit {
       return Promise.resolve(this.materia);
     }
     return new Promise(resolve => {
-      this.http.get('http://localhost:3000/materias/' + this.route.snapshot.paramMap.get('id'))
+      this.http.get('https://apiflux.herokuapp.com/materias/' + this.route.snapshot.paramMap.get('id'))
       .pipe(map(res => res.json())).subscribe(materia => {
         // el get retorna una materia luego de buscarla por id de la cual se pueden descomponer sus atributos
         this.materia = materia;
@@ -63,7 +63,7 @@ export class MateriaComponent implements OnInit {
         }
         if (typeof materia.prelacion1 !== 'undefined') { // validaciones de prelacion y agarra la primera prelacion de la base de datos
           this.prelaciones = true;
-          this.http.get('http://localhost:3000/materias/' + this.materia.prelacion1)
+          this.http.get('https://apiflux.herokuapp.com/materias/' + this.materia.prelacion1)
           .pipe(map(res => res.json())).subscribe(prelacion1 => {
             this.prelacion1 = prelacion1._id;
             this.prelacion1n = prelacion1.name;
@@ -73,7 +73,7 @@ export class MateriaComponent implements OnInit {
           this.prelaciones = false;
         }
         if (typeof materia.prelacion2 !== 'undefined') { // validaciones de prelacion y agarra la segunda prelacion de la base de datos
-          this.http.get('http://localhost:3000/materias/' + this.materia.prelacion2)
+          this.http.get('https://apiflux.herokuapp.com/materias/' + this.materia.prelacion2)
           .pipe(map(res => res.json())).subscribe(prelacion2 => {
             this.prelacion2 = prelacion2._id;
             this.prelacion2n = prelacion2.name;
@@ -82,7 +82,7 @@ export class MateriaComponent implements OnInit {
         if (typeof materia.antelacion1 !== 'undefined') {
           this.antelaciones = true;
           // get de la antelacion1 para asignarla a las antelaciones de la materia actual
-          this.http.get('http://localhost:3000/materias/' + this.materia.antelacion1)
+          this.http.get('https://apiflux.herokuapp.com/materias/' + this.materia.antelacion1)
           .pipe(map(res => res.json())).subscribe(antelacion1 => {
             this.antelacion1 = antelacion1._id;
             this.antelacion1n = antelacion1.name;
@@ -99,7 +99,7 @@ export class MateriaComponent implements OnInit {
         }
         if (typeof materia.antelacion2 !== 'undefined') {
           // get de la antelacion2 para asignarla a las antelaciones de la materia actual
-          this.http.get('http://localhost:3000/materias/' + this.materia.antelacion2)
+          this.http.get('https://apiflux.herokuapp.com/materias/' + this.materia.antelacion2)
           .pipe(map(res => res.json())).subscribe(antelacion2 => {
             this.antelacion2 = antelacion2._id;
             this.antelacion2n = antelacion2.name;
@@ -114,7 +114,7 @@ export class MateriaComponent implements OnInit {
         }
         if (typeof materia.antelacion3 !== 'undefined') {
           // get de la antelacion3 para asignarla a las antelaciones de la materia actual
-          this.http.get('http://localhost:3000/materias/' + this.materia.antelacion3)
+          this.http.get('https://apiflux.herokuapp.com/materias/' + this.materia.antelacion3)
           .pipe(map(res => res.json())).subscribe(antelacion3 => {
             this.antelacion3 = antelacion3._id;
             this.antelacion3n = antelacion3.name;
